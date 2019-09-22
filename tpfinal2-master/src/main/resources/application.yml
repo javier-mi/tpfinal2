@@ -1,0 +1,25 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: create
+    ddl-auto: update
+  datasource: 
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+   
+
+ 
+#Deshabilitado por el momento 
+#spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+#security.user.username: admin 
+# security.user.password: admin
+spring.security.user.name: admin
+spring.security.user.password: admin
+
+#Dehabilitar seguridad
+spring.security.basic.enabled: false
+spring.management.security.enabled: false
+
+spring.management.trace.include : remote_address, parameters
