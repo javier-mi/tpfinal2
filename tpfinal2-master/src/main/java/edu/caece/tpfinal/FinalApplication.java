@@ -17,12 +17,12 @@ import edu.caece.tpfinal.repository.UserRepository;
 
 @SpringBootApplication(scanBasePackages= {
 	"edu.caece.tpfinal"
-//	"edu.caece.tpfinal.config",
-//	"edu.caece.tpfinal.config.security"
+	//"edu.caece.tpfinal.config",
+//"edu.caece.tpfinal.config.security"
 })
-//@ComponentScan(basePackages = { 
-//@EnableAutoConfiguration
-//@Configuration
+//@ComponentScan(basePackages = { Error: Could not find or load main class edu.caece.tpfinal.FinalApplication
+@EnableAutoConfiguration
+@Configuration
 @Import({WebSecurity.class})
 public class FinalApplication {
 
