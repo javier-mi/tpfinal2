@@ -21,7 +21,7 @@
   <script>document.forms.cdnOffline.clientWidth && document.write('<script src="//static.webcamtests.com/theme/js/cdnOffline.js?0.1.25"><\/script>');</script>
 
   <script type="text/javascript">
-  	function visible() {
+  	function mostrarLogin() {
   		if (document.getElementById('principal').style.display == "none") {
  			document.getElementById('indice').style.display = "none";
  			document.getElementById('principal').style.display = "block";
@@ -53,7 +53,7 @@
 		<section>
 		<div align="center">
 			<button id="webcam-launcher" class="btn btn-primary">Verificar Identidad</button>
-			<button class="btn btn-primary" onclick="visible();">Probar</button>
+			<button class="btn btn-primary" onclick="mostrarLogin();">Login</button>
 		</div>
 
 		<div align="center" data-include-widget="webcam_tester">
