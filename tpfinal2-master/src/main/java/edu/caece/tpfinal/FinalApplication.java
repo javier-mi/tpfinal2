@@ -33,9 +33,13 @@ public class FinalApplication {
 	@Bean
 	ApplicationRunner init(UserRepository repository) {
 		return args -> {
-			Stream.of("Fulano", "Mengano", "Sultano").forEach(name -> {
+			Stream.of("Francisco Ferrari;891602;32256985;Alumno", "Javier Michelson;902355;25236589;Alumno", "Juan Salinas;912565;32256951;Alumno").forEach(alumno -> {
 				User user = new User();
-				user.setName(name);
+				String[] datos = alumno.split(";");
+				user.setName(datos[0]);
+				user.setMatricula(datos[1]);
+				user.setDni(datos[2]);
+				user.setDescription(datos[3]);
 				repository.save(user);
 			});
 			repository.findAll().forEach(System.out::println);
