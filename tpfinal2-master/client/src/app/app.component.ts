@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Thea';
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 173e36cd938eb18d7edb9c3334c6f389ce415e78

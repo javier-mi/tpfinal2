@@ -9,10 +9,6 @@ import { RouterModule, Route } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-<<<<<<< HEAD
-import { HttpClientModule } from '@angular/common/http';
-=======
->>>>>>> 173e36cd938eb18d7edb9c3334c6f389ce415e78
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
