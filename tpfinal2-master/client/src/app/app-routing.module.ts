@@ -6,7 +6,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 
 const routes: Routes = [
-		{ path: '', redirectTo: '/login', pathMatch: 'full' },
+		{ path: '', redirectTo: '/home', pathMatch: 'full' },
 		{
 	    path: 'home',
 	    component: HomeComponent
