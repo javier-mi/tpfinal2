@@ -9,19 +9,19 @@
                 <input type="hidden" name="href" [(ngModel)]="user.href">
                 <input id="edit-formula" type="hidden" name="href" [(ngModel)]="user.userData">
                 <mat-form-field>
-                    <input matInput placeholder="Nombre" [(ngModel)]="user.name"
+                    <input matInput placeholder="Nombre y apellido" [(ngModel)]="user.name"
                           required name="name" #name />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput placeholder="Matricula" [(ngModel)]="user.matricula"
-                        required name="matricula" #matricula />
                 </mat-form-field>
                 <mat-form-field>
                     <input matInput placeholder="DNI" [(ngModel)]="user.dni"
                           required name="dni" #dni />
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Descipción" [(ngModel)]="user.description"
+                  <input matInput placeholder="Matricula" [(ngModel)]="user.matricula"
+                        required name="matricula" #matricula />
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Descipci&oacute;n" [(ngModel)]="user.description"
                         required name="description" #description />
                 </mat-form-field>
               </mat-card-content>
