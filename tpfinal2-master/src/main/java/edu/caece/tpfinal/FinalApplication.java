@@ -34,7 +34,7 @@ public class FinalApplication {
 	ApplicationRunner init(UserRepository repository) {
 		return args -> {
 			Stream.of("Francisco Ferrari;891602;32256985;Alumno", "Javier Michelson;902355;25236589;Alumno", 
-					"Juan Salinas;912565;32256951;Alumno", "Pablo Garcia;925689;32456852,Alumno").forEach(alumno -> {
+					"Juan Salinas;912565;32256951;Alumno", "Pablo Garcia;925689;32456852;Alumno").forEach(alumno -> {
 				User user = new User();
 				String[] datos = alumno.split(";");
 				user.setName(datos[0]);
