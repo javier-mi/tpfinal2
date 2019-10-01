@@ -4,31 +4,34 @@
       <div align="center"> 
         <fieldset>
             <form #userForm="ngForm" (ngSubmit)="save(userForm.value)">
-              <mat-card-title>Usuario</mat-card-title>
+              <mat-card-title>Registro<br></mat-card-title>
               <mat-card-content>
                 <input type="hidden" name="href" [(ngModel)]="user.href">
                 <input id="edit-formula" type="hidden" name="href" [(ngModel)]="user.userData">
                 <mat-form-field>
-                    <input matInput placeholder="Pablo Garcia" [(ngModel)]="user.name"
+                    <input matInput placeholder="Nombre y apellido" [(ngModel)]="user.name"
                           required name="name" #name />
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="123546" [(ngModel)]="user.matricula"
+                  <input matInput placeholder="Matricula" [(ngModel)]="user.matricula"
                          name="matricula" #matricula />
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="-" [(ngModel)]="user.description"
+                  <input matInput placeholder="Email" [(ngModel)]="user.description"
                         required name="description" #description />
                 </mat-form-field>
                 <mat-form-field>
-                    <input matInput placeholder="#######" [(ngModel)]="user.dni"
+                    <input matInput placeholder="Password" [(ngModel)]="user.dni"
                           required name="dni" #dni />
                 </mat-form-field>
               </mat-card-content>
+              <br>
               <mat-card-actions>
-                <button mat-raised-button color="primary" type="submit">
-					<a mat-button routerLink="/photos">Ver fotos</a>
-				</button>
+                <button mat-raised-button color="primary" type="submit"
+                        [disabled]="!userForm.form.valid">Guardar</button>
+                <button mat-raised-button color="secondary" (click)="remove(user.href)"
+                        *ngIf="user.href" type="button">Eliminar</button>
+                <a mat-button routerLink="/user-list">Cancelar</a>
               </mat-card-actions>
               <mat-card-footer>
               </mat-card-footer>

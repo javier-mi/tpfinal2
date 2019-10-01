@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { PhotosComponent } from './photos/photos.component';
 import { UsersComponent } from './users/users.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
@@ -19,6 +21,8 @@ const routes: Route[] = [
   {path: '', component: AppComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'photos', component: PhotosComponent},
   {path: 'user-edit', component: UserEditComponent},
   {path: 'users-list', component: UsersListComponent}
 ];
@@ -28,6 +32,8 @@ const routes: Route[] = [
     AppComponent,
     HomeComponent,
     LoginComponent,
+    RegisterComponent,
+    PhotosComponent,
     UsersComponent,
     UsersListComponent,
     UserEditComponent
