@@ -4,16 +4,14 @@ import java.util.stream.Stream;
 
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 
-import edu.caece.tpfinal.domain.User;
-import edu.caece.tpfinal.repository.UserRepository;
+import edu.caece.tpfinal.domain.Usuario;
+import edu.caece.tpfinal.repository.IUsuarioRepositorio;
 
 @SpringBootApplication(scanBasePackages= {
 	"edu.caece.tpfinal",
@@ -31,19 +29,37 @@ public class FinalApplication {
 	}
 
 	@Bean
-	ApplicationRunner init(UserRepository repository) {
+	ApplicationRunner init(IUsuarioRepositorio repository) {
 		return args -> {
-			Stream.of("Francisco Ferrari;891602;32256985;Alumno", "Javier Michelson;902355;25236589;Alumno", 
-					"Juan Salinas;912565;32256951;Alumno", "Pablo Garcia;925689;32456852;Alumno").forEach(alumno -> {
-				User user = new User();
+			Stream.of("Francisco; Ferrari; ff@gmail.com; ffff", 
+					  "Javier; Michelson; jm@gmail.com; jjjj", 
+					  "Juan; Salinas; js@gmail.com; ssss", 
+					  "Pablo; Garcia; pg@gmail.com; gggg").forEach(alumno -> {
+				Usuario usuario = new Usuario();
 				String[] datos = alumno.split(";");
-				user.setName(datos[0]);
-				user.setMatricula(datos[1]);
-				user.setDni(datos[2]);
-				user.setDescription(datos[3]);
-				repository.save(user);
+				usuario.setNombre(datos[0]);
+				usuario.setApellido(datos[1]);
+				usuario.setEmail(datos[2]);
+				usuario.setContrasenia(datos[3]);
+				repository.save(usuario);
 			});
 			repository.findAll().forEach(System.out::println);
+			
+			//ConfigurableApplicationContext context = SpringApplication.run(FinalApplication.class);
+			//UsuarioRepositorio repositorio = context.getBean(UsuarioRepositorio.class);
+
+	        // Guardar un conjunto de usuarios
+			//repositorio.save(new Usuario("Natalia", "Gonzalez", "ng@gmail.com", "gggg"));
+
+	        // findAll heredado de la interface CrudRepository
+			//Iterable<Usuario> todos = repository.findAll();
+			//System.out.println("Listar todos los Usuarios:");
+			//for (Usuario usr : todos) {
+			//System.out.println("\t" + usr);
+			//}
+			//System.out.println();
+
+			//context.close();
 		};
 	}
 }
