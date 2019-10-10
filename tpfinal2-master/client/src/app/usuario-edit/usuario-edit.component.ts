@@ -1,34 +1,34 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UsersService } from '../shared/users/users.service';
+import { UsuariosService } from '../shared/usuarios/usuarios.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-photos',
-  templateUrl: './photos.component.html',
-  styleUrls: ['./photos.component.css']
+  selector: 'app-usuario-edit',
+  templateUrl: './usuario-edit.component.html',
+  styleUrls: ['./usuario-edit.component.css']
 })
-export class PhotosComponent implements OnInit, OnDestroy {
+export class UsuarioEditComponent implements OnInit, OnDestroy {
 
-  user: any = {};
+  usuario: any = {};
 
   sub: Subscription;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private usersService: UsersService) {
+              private usuariosService: UsuariosService) {
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
-        this.usersService.get(id).subscribe((user: any) => {
-          if (user) {
-            this.user = user;
-            this.user.href = user._links.self.href;
-            this.user.matricula = user.matricula;
+        this.usuariosService.get(id).subscribe((usuario: any) => {
+          if (usuario) {
+            this.usuario = usuario;
+            this.usuario.href = usuario._links.self.href;
+            this.usuario.matricula = usuario.matricula;
           } else {
             console.log(`El usuario con id '${id}' no fue encontrado , volviendo a listado`);
             this.gotoList();
@@ -47,13 +47,13 @@ export class PhotosComponent implements OnInit, OnDestroy {
   }
 
   save(form: NgForm) {
-    this.usersService.save(form).subscribe(result => {
+    this.usuariosService.save(form).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }
 
   remove(href) {
-    this.usersService.remove(href).subscribe(result => {
+    this.usuariosService.remove(href).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }

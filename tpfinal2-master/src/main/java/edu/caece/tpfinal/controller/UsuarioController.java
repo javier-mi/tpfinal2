@@ -16,24 +16,24 @@ import edu.caece.tpfinal.repository.IUsuarioRepositorio;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-public class GenericController {
+public class UsuarioController {
 	
 	@Autowired
-	private IUsuarioRepositorio userRepository;
+	private IUsuarioRepositorio usuarioRepositorio;
 	
-	@GetMapping("/users")
+	@GetMapping("/usuarios")
 	public Collection<Usuario> users() {
-		return userRepository.findAll().stream().collect(Collectors.toList());
+		return usuarioRepositorio.findAll().stream().collect(Collectors.toList());
 	}
 	
-	@PostMapping("/users/save")
+	@PostMapping("/usuarios/save")
 	public void save(@RequestBody Usuario user) {
-		this.userRepository.save(user);
+		this.usuarioRepositorio.save(user);
 	}
 	
-	@DeleteMapping("/users/delete/{id}")
+	@DeleteMapping("/usuarios/delete/{id}")
 	public void delete(Long id) {
-		// TODO
+
 	}
 
 }

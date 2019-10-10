@@ -1,6 +1,6 @@
 package edu.caece.tpfinal;
 
-import java.util.stream.Stream;
+import java.util.ArrayList;
 
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,8 +10,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 
-import edu.caece.tpfinal.domain.Usuario;
 import edu.caece.tpfinal.repository.IUsuarioRepositorio;
+import edu.caece.tpfinal.repository.IFotoRepositorio;
+
+import edu.caece.tpfinal.domain.Usuario;
+import edu.caece.tpfinal.domain.Foto;
+
+import edu.caece.tpfinal.resources.LecturaCarpeta;
+import edu.caece.tpfinal.resources.LecturaExcel;
+
 
 @SpringBootApplication(scanBasePackages= {
 	"edu.caece.tpfinal",
@@ -29,37 +36,39 @@ public class FinalApplication {
 	}
 
 	@Bean
-	ApplicationRunner init(IUsuarioRepositorio repository) {
+	ApplicationRunner init(IUsuarioRepositorio usuarioRepositorio,
+						   IFotoRepositorio fotoRepositorio) {
 		return args -> {
-			Stream.of("Francisco; Ferrari; ff@gmail.com; ffff", 
-					  "Javier; Michelson; jm@gmail.com; jjjj", 
-					  "Juan; Salinas; js@gmail.com; ssss", 
-					  "Pablo; Garcia; pg@gmail.com; gggg").forEach(alumno -> {
-				Usuario usuario = new Usuario();
-				String[] datos = alumno.split(";");
-				usuario.setNombre(datos[0]);
-				usuario.setApellido(datos[1]);
-				usuario.setEmail(datos[2]);
-				usuario.setContrasenia(datos[3]);
-				repository.save(usuario);
-			});
-			repository.findAll().forEach(System.out::println);
+			crearTablaUsuarios(usuarioRepositorio);
+			crearTablaFotos(fotoRepositorio);
 			
-			//ConfigurableApplicationContext context = SpringApplication.run(FinalApplication.class);
-			//UsuarioRepositorio repositorio = context.getBean(UsuarioRepositorio.class);
-
-	        // Guardar un conjunto de usuarios
-			//repositorio.save(new Usuario("Natalia", "Gonzalez", "ng@gmail.com", "gggg"));
-
-	        // findAll heredado de la interface CrudRepository
-			//Iterable<Usuario> todos = repository.findAll();
-			//System.out.println("Listar todos los Usuarios:");
-			//for (Usuario usr : todos) {
-			//System.out.println("\t" + usr);
-			//}
-			//System.out.println();
-
-			//context.close();
 		};
+	}
+	
+	public void crearTablaUsuarios(IUsuarioRepositorio usuarioRepositorio) throws Exception {
+		try {
+			LecturaExcel lecturaDatos = new LecturaExcel();
+			lecturaDatos.leerExcel();
+			ArrayList<Usuario> usuarios = lecturaDatos.obtenerUsuarios();
+			for (Usuario usuario: usuarios) {
+				usuarioRepositorio.save(usuario);
+			}
+			usuarioRepositorio.findAll().forEach(System.out::println);
+		} catch (Exception e) {
+			throw new Exception ("method crearTablaUsuarios" + e.getMessage());
+		}
+	}
+	
+	public void crearTablaFotos(IFotoRepositorio fotoRepositorio) throws Exception {
+		try {
+			LecturaCarpeta lecturaCarpeta = new LecturaCarpeta();
+			ArrayList<Foto> fotos = lecturaCarpeta.recorrerCarpeta();
+			for (Foto foto: fotos) {
+				fotoRepositorio.save(foto);
+			}
+			fotoRepositorio.findAll().forEach(System.out::println);
+		} catch (Exception e) {
+			throw new Exception ("method crearTablaFotos" + e.getMessage());
+		}
 	}
 }

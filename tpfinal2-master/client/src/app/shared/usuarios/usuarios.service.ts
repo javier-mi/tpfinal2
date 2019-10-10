@@ -3,27 +3,27 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
-export class UsersService {
+export class UsuariosService {
   public API = '//localhost:8080';
-  public USER_API = this.API + '/users';
+  public USUARIO_API = this.API + '/usuarios';
 
   constructor(private http: HttpClient) {
   }
 
   getAll(): Observable<any> {
-    return this.http.get(this.API + '/users');
+    return this.http.get(this.API + '/usuarios');
   }
   
   get(id: string) {
-    return this.http.get(this.USER_API + '/' + id);
+    return this.http.get(this.USUARIO_API + '/' + id);
   }
 
-  save(user: any): Observable<any> {
+  save(usuario: any): Observable<any> {
     let result: Observable<Object>;
-    if (user['href']) {
-      result = this.http.put(user.href, user);
+    if (usuario['href']) {
+      result = this.http.put(usuario.href, usuario);
     } else {
-      result = this.http.post(this.USER_API + '/save', user);
+      result = this.http.post(this.USUARIO_API + '/save', usuario);
     }
     return result;
   }

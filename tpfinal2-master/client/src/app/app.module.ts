@@ -9,34 +9,34 @@ import { RouterModule, Route } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HomeComponent } from './home/home.component';
+import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { PhotosComponent } from './photos/photos.component';
-import { UsersComponent } from './users/users.component';
-import { UsersListComponent } from './users-list/users-list.component';
-import { UserEditComponent } from './user-edit/user-edit.component';
+import { RegistroComponent } from './registro/registro.component';
+import { FotosComponent } from './fotos/fotos.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
+import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
 
 const routes: Route[] = [
   {path: '', component: AppComponent},
-  {path: 'home', component: HomeComponent},
+  {path: 'inicio', component: InicioComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'photos', component: PhotosComponent},
-  {path: 'user-edit', component: UserEditComponent},
-  {path: 'users-list', component: UsersListComponent}
+  {path: 'registro', component: RegistroComponent},
+  {path: 'fotos', component: FotosComponent},
+  {path: 'usuario-edit', component: UsuarioEditComponent},
+  {path: 'usuarios-list', component: UsuariosListComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    InicioComponent,
     LoginComponent,
-    RegisterComponent,
-    PhotosComponent,
-    UsersComponent,
-    UsersListComponent,
-    UserEditComponent
+    RegistroComponent,
+    FotosComponent,
+    UsuariosComponent,
+    UsuariosListComponent,
+    UsuarioEditComponent
   ],
   imports: [
     BrowserModule,

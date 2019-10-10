@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.caece.tpfinal.domain.Usuario;
 
-@Repository(value = "userDao")
+@Repository(value = "usuarioDao")
 public class JPAUsuarioDao implements IUsuarioDao {
 
     private EntityManager em = null;
@@ -26,26 +26,22 @@ public class JPAUsuarioDao implements IUsuarioDao {
 
 	@Override
 	public Usuario getUsuarioById(int usuarioId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean usuarioExiste(String email, String contrasenia) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void agregarUsuario(Usuario usuario) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void eliminarUsuario(int usuarioId) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 }
