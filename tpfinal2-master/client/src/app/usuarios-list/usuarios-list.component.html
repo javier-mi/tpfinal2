@@ -1,15 +1,36 @@
-<mat-card>
-  <mat-card-title>Usuarios</mat-card-title>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item *ngFor="let usuario of usuarios">
-        <h3 mat-line>
-          <a mat-button [routerLink]="['/usuario-edit', usuario.id]">{{usuario.nombre}} {{usuario.apellido}}</a>
-          ( {{usuario.email}} )
-        </h3>
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
-  <button class="btn btn-primary" [routerLink]="['/usuario-add']">Agregar usuario</button>
-  
-</mat-card>
+<div class="container">
+  <div class="row">
+    <mat-card>
+      <mat-card-content>
+        <table class="table table-dark table-striped table-hover">
+           <thead class="sticky-top">
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Email</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr mdbTableCol *ngFor="let usuario of usuarios">
+              <td>{{usuario.nombre}}</td>
+              <td>{{usuario.apellido}}</td>
+              <td>{{usuario.email}}</td>
+              <td>
+                <a mat-button [routerLink]="['/usuario-edit', usuario.id]">
+                  <img src="assets/img/iconos/editar.png" width="25" height="25">
+                </a>
+              </td>
+              <td>
+                <a mat-button [routerLink]="['/usuario-edit', usuario.id]">
+                  <img src="assets/img/iconos/eliminar.png" width="25" height="25">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-card-content>
+      <button class="btn btn-primary" [routerLink]="['/usuario-add']">Agregar usuario</button>
+    </mat-card>
+</div>

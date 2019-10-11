@@ -46,6 +46,7 @@ public class LecturaExcel {
 	public void recorrerDatosHoja(XSSFSheet sheet) {
 		Iterator<Row> rowIterator = sheet.iterator(); // Obtener Filas de Excel
 		Row row;
+		rowIterator.hasNext(); // Primera fila contiene tìtulos
 		while (rowIterator.hasNext()) { // Se Recorre Cada Fila Hasta el Final
 			row = rowIterator.next();
 			Iterator<Cell> cellIterator = row.cellIterator(); // Se Obtiene Celdas por Fila
