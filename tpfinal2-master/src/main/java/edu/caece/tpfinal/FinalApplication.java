@@ -43,6 +43,7 @@ public class FinalApplication {
 			crearTablaFotos(fotoRepositorio);
 			
 		};
+		
 	}
 	
 	public void crearTablaUsuarios(IUsuarioRepositorio usuarioRepositorio) throws Exception {
