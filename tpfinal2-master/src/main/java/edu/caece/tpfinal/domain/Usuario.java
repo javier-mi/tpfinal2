@@ -25,12 +25,18 @@ public class Usuario {
 	@Column(name="apellido")
 	private String apellido;
 	
+	@Column(name="dni")
+	private String dni;
+
 	@Column(name="email")
 	private String email;
 	
 	@Column(name="contrasenia")
 	private String contrasenia;
 	
+	@Column(name="estado")
+	private int estado;
+
 	public Usuario() {
 	
 	}
@@ -68,6 +74,14 @@ public class Usuario {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+	
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
 
 	public String getEmail() {
 		return email;
@@ -85,12 +99,23 @@ public class Usuario {
 		this.contrasenia = contrasenia;
 	}
 	
+	
+	public int isEstado() {
+		return estado;
+	}
+
+	public void setEstado(int estado) {
+		this.estado = estado;
+	}
+	
 	public String toString (){
         String datosUsuario = "Usuario::" + 
         					  nombre + ":" + 
         					  apellido +":" + 
+        					  dni +":" + 
         					  email+":"+
-        					  contrasenia;
+        					  contrasenia+":"+
+        					  estado;
         return datosUsuario;
     }
 

@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import edu.caece.tpfinal.domain.Foto;
 
 public class LecturaCarpeta {
-	
-	public static final String ANSI_RESET = "\u001B[0m";
-	public static final String ANSI_RED = "\u001B[31m";
   
     //Carpeta del usuario
     //String sCarpAct = System.getProperty("user.dir");
@@ -38,7 +35,7 @@ public class LecturaCarpeta {
 			return fotos;
 		}
 	}
-  
+
 	@SuppressWarnings("finally")
 	public ArrayList<Foto> recorrerFotos(File carpeta) throws Exception {
 	  ArrayList<Foto> fotos = new ArrayList<Foto>();
@@ -50,6 +47,7 @@ public class LecturaCarpeta {
 		    	  Foto foto = new Foto();
 		    	  foto.setUsuario(archivos[i].getName());
 		    	  foto.setFoto(archivo);
+		    	  //System.out.println(foto.toString());
 		    	  fotos.add(foto);
 			  }
 		    }

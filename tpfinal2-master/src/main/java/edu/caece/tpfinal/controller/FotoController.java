@@ -11,27 +11,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.caece.tpfinal.domain.Usuario;
-import edu.caece.tpfinal.repository.IUsuarioRepositorio;
+import edu.caece.tpfinal.domain.Foto;
+import edu.caece.tpfinal.repository.IFotoRepositorio;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-public class UsuarioController {
+public class FotoController {
 	
 	@Autowired
-	private IUsuarioRepositorio usuarioRepositorio;
+	private IFotoRepositorio fotoRepositorio;
 	
-	@GetMapping("/usuarios")
-	public Collection<Usuario> users() {
-		return usuarioRepositorio.findAll().stream().collect(Collectors.toList());
+	@GetMapping("/fotos")
+	public Collection<Foto> users() {
+		return fotoRepositorio.findAll().stream().collect(Collectors.toList());
 	}
 	
-	@PostMapping("/usuarios/save")
-	public void save(@RequestBody Usuario usuario) {
-		this.usuarioRepositorio.save(usuario);
+	@PostMapping("/fotos/save")
+	public void save(@RequestBody Foto foto) {
+		this.fotoRepositorio.save(foto);
 	}
 	
-	@DeleteMapping("/usuarios/delete/{id}")
+	@DeleteMapping("/fotos/delete/{id}")
 	public void delete(Long id) {
 
 	}

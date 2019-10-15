@@ -23,3 +23,20 @@
   </a>
 
 </div>
+
+<div class="container">
+  <div class="row">
+    <mat-card>
+      <mat-card-content>
+        <table class="table table-dark table-striped table-hover">
+          <tbody>
+            <tr mdbTableCol *ngFor="let foto of fotos">
+              <td>{{foto.id}}</td>
+              <td>{{foto.usuario}}</td>
+              <td>{{foto.foto}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-card-content>
+    </mat-card>
+</div>

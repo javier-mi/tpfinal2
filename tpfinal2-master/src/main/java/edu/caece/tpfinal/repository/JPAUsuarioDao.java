@@ -19,9 +19,10 @@ public class JPAUsuarioDao implements IUsuarioDao {
         this.em = em;
     }
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> getUsuarios() {
-		return em.createQuery("select p from usuarios p order by p.id").getResultList();
+		return em.createQuery("SELECT u FROM usuarios u order by u.id WHERE u.estado = 1").getResultList();
 	}
 
 	@Override

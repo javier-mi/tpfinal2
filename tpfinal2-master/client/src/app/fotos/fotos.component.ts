@@ -1,60 +1,20 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UsuariosService } from '../shared/usuarios/usuarios.service';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FotosService } from '../shared/fotos/fotos.service';
 
 @Component({
-  selector: 'app-fotos',
+  selector: 'fotos',
   templateUrl: './fotos.component.html',
   styleUrls: ['./fotos.component.css']
 })
-export class FotosComponent implements OnInit, OnDestroy {
+export class FotosComponent implements OnInit {
+  fotos: Array<any>;
 
-  usuario: any = {};
-
-  sub: Subscription;
-
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private usuariosService: UsuariosService) {
-  }
+  constructor(private fotosService: FotosService) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      const id = params['id'];
-      if (id) {
-        this.usuariosService.get(id).subscribe((usuario: any) => {
-          if (usuario) {
-            this.usuario = usuario;
-            this.usuario.href = usuario._links.self.href;
-            this.usuario.matricula = usuario.matricula;
-          } else {
-            console.log(`El usuario con id '${id}' no fue encontrado , volviendo a listado`);
-            this.gotoList();
-          }
-        });
-      }
+    this.fotosService.getAll().subscribe(data => {
+      this.fotos = data;
     });
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
-
-  gotoList() {
-    this.router.navigate(['/usuarios-list']);
-  }
-
-  save(form: NgForm) {
-    this.usuariosService.save(form).subscribe(result => {
-      this.gotoList();
-    }, error => console.error(error));
-  }
-
-  remove(href) {
-    this.usuariosService.remove(href).subscribe(result => {
-      this.gotoList();
-    }, error => console.error(error));
-  }
 }

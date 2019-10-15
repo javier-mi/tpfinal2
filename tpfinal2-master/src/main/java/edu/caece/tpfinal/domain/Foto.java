@@ -49,5 +49,13 @@ public class Foto {
 	public void setFoto(byte[] foto) {
 		this.foto = foto;
 	}
+	
+	public String toString (){
+        String datosUsuario = "Foto::" + 
+        					   id + ":" + 
+        					   usuario +":" + 
+        					   foto;
+        return datosUsuario;
+    }
 
 }

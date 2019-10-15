@@ -26,9 +26,7 @@
                 </mat-form-field>
               </mat-card-content>
               <mat-card-actions>
-                <button mat-raised-button color="primary" type="submit">
-					<a mat-button routerLink="/fotos">Ver fotos</a>
-				</button>
+             
               </mat-card-actions>
               <mat-card-footer>
               </mat-card-footer>
@@ -37,3 +35,5 @@
     </div>
   </div>
 <div>
+
+   <button mat-raised-button color="primary" [routerLink]="['/fotos']">Ver fotos</button>

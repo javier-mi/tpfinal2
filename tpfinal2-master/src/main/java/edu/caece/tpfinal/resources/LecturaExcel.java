@@ -13,29 +13,20 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import edu.caece.tpfinal.domain.Usuario;
 
 public class LecturaExcel {
-	
-	protected String nombreArchivo = "Datos.xlsx";
-	protected String rutaArchivo = "C:\\TP-FINAL\\" + nombreArchivo;
 
-	public void leerExcel() {
-		try {
-			FileInputStream file = new FileInputStream(new File(rutaArchivo));
-			XSSFWorkbook worbook = new XSSFWorkbook(file); // Leer Archivo Excel
-			XSSFSheet sheet = worbook.getSheetAt(0); // Obtener Hoja a Leer
-			recorrerDatosHoja(sheet);
-		} catch (Exception e) {
-			e.getMessage();
-		}
-	}
+	protected String rutaArchivo = "";
+	
+	XSSFWorkbook worbook = null;
+	XSSFSheet sheet = null;
 	
 	@SuppressWarnings("finally")
 	public ArrayList<Usuario> obtenerUsuarios() {
 		ArrayList<Usuario> usuarios = null;
 		try {
-			FileInputStream file = new FileInputStream(new File(rutaArchivo));
-			XSSFWorkbook worbook = new XSSFWorkbook(file); // Leer Archivo Excel
-			XSSFSheet sheet = worbook.getSheetAt(0); // Obtener Hoja a Leer
-			usuarios = leerHojaUsuarios(sheet);
+			String path = System.getProperty("user.dir");
+			rutaArchivo = path + "\\src\\main\\resources\\bd\\TP-FINAL\\Datos.xlsx";
+			leerExcel();
+			usuarios = leerHojaUsuarios();
 		} catch (Exception e) {
 			e.getMessage();
 		} finally {
@@ -43,10 +34,20 @@ public class LecturaExcel {
 		}
 	}
 	
-	public void recorrerDatosHoja(XSSFSheet sheet) {
+	public void leerExcel() {
+		try {
+			FileInputStream file = new FileInputStream(new File(rutaArchivo));
+			worbook = new XSSFWorkbook(file); // Leer Archivo Excel
+			sheet = worbook.getSheetAt(0); // Obtener Hoja a Leer
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
+	
+	public void recorrerDatosHoja() {
 		Iterator<Row> rowIterator = sheet.iterator(); // Obtener Filas de Excel
 		Row row;
-		rowIterator.hasNext(); // Primera fila contiene tìtulos
+		rowIterator.next(); // Primera fila contiene tìtulos
 		while (rowIterator.hasNext()) { // Se Recorre Cada Fila Hasta el Final
 			row = rowIterator.next();
 			Iterator<Cell> cellIterator = row.cellIterator(); // Se Obtiene Celdas por Fila
@@ -59,10 +60,11 @@ public class LecturaExcel {
 		}
 	}
 
-	public ArrayList<Usuario> leerHojaUsuarios(XSSFSheet sheet) {
+	public ArrayList<Usuario> leerHojaUsuarios() {
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 		Iterator<Row> rowIterator = sheet.iterator(); // Obtener Filas de Excel
 		Row row;
+		rowIterator.next(); // Primera fila contiene tìtulos
 		while (rowIterator.hasNext()) { // Se Recorre Cada Fila Hasta el Final
 			row = rowIterator.next();
 			Iterator<Cell> cellIterator = row.cellIterator(); // Se Obtiene Celdas por Fila
@@ -74,9 +76,14 @@ public class LecturaExcel {
 				cell = cellIterator.next();
 				usuario.setApellido(cell.getStringCellValue());
 				cell = cellIterator.next();
+				usuario.setDni(cell.getStringCellValue());
+				cell = cellIterator.next();
 				usuario.setEmail(cell.getStringCellValue());
 				cell = cellIterator.next();
 				usuario.setContrasenia(cell.getStringCellValue());
+				cell = cellIterator.next();
+				usuario.setEstado((int) cell.getNumericCellValue());
+				System.out.println(usuario.toString());
 				usuarios.add(usuario);
 			}
 		}
