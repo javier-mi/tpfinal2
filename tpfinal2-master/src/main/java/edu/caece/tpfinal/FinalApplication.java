@@ -44,8 +44,8 @@ public class FinalApplication {
 	ApplicationRunner init(IUsuarioRepositorio usuarioRepositorio,
 						   IFotoRepositorio fotoRepositorio) {
 		return args -> {
-			crearTablaUsuarios(usuarioRepositorio);
-			crearTablaFotos(fotoRepositorio);
+			//crearTablaUsuarios(usuarioRepositorio);
+			//crearTablaFotos(fotoRepositorio);
 			
 		};
 		

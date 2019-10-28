@@ -8,8 +8,6 @@ public interface IUsuarioDao {
 	
 	Usuario getUsuarioById(int usuarioId);
 
-	boolean usuarioExiste(String email, String contrasenia);
-
 	void agregarUsuario(Usuario usuario);
 	
 	void eliminarUsuario(int usuarioId);

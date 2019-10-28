@@ -9,7 +9,7 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="fotos") 
+@Table(name="foto") 
 public class Foto {
 	
 	private static final long serialVersionUID = 1L;

@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Table(name="usuarios") 
+@Table(name="usuario") 
 public class Usuario {
 	
 	private static final long serialVersionUID = 1L;
@@ -24,18 +24,12 @@ public class Usuario {
 	
 	@Column(name="apellido")
 	private String apellido;
-	
-	@Column(name="dni")
-	private String dni;
 
 	@Column(name="email")
 	private String email;
-	
-	@Column(name="contrasenia")
-	private String contrasenia;
-	
-	@Column(name="estado")
-	private int estado;
+
+	@Column(name = "idRol")
+	private Integer idRol;
 
 	public Usuario() {
 	
@@ -44,11 +38,11 @@ public class Usuario {
 	public Usuario(String nombre,
 				   String apellido,
 				   String email,
-				   String contrasenia) {
+				   int idRol) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
-		this.contrasenia = contrasenia;
+		this.idRol = idRol;
 	}
 	
 	public Integer getId() {
@@ -74,14 +68,6 @@ public class Usuario {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	
-	public String getDni() {
-		return dni;
-	}
-
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
 
 	public String getEmail() {
 		return email;
@@ -90,32 +76,20 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getContrasenia() {
-		return contrasenia;
-	}
-
-	public void setContrasenia(String contrasenia) {
-		this.contrasenia = contrasenia;
-	}
 	
-	
-	public int isEstado() {
-		return estado;
+	public Integer getIdRol() {
+		return idRol;
 	}
 
-	public void setEstado(int estado) {
-		this.estado = estado;
+	public void setIdRol(Integer idRol) {
+		this.idRol = idRol;
 	}
 	
 	public String toString (){
         String datosUsuario = "Usuario::" + 
         					  nombre + ":" + 
         					  apellido +":" + 
-        					  dni +":" + 
-        					  email+":"+
-        					  contrasenia+":"+
-        					  estado;
+        					  email;
         return datosUsuario;
     }
 

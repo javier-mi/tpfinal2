@@ -22,17 +22,12 @@ public class JPAUsuarioDao implements IUsuarioDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> getUsuarios() {
-		return em.createQuery("SELECT u FROM usuarios u order by u.id WHERE u.estado = 1").getResultList();
+		return em.createQuery("SELECT u FROM usuario u").getResultList();
 	}
 
 	@Override
 	public Usuario getUsuarioById(int usuarioId) {
 		return null;
-	}
-
-	@Override
-	public boolean usuarioExiste(String email, String contrasenia) {
-		return false;
 	}
 
 	@Override

@@ -76,13 +76,7 @@ public class LecturaExcel {
 				cell = cellIterator.next();
 				usuario.setApellido(cell.getStringCellValue());
 				cell = cellIterator.next();
-				usuario.setDni(cell.getStringCellValue());
-				cell = cellIterator.next();
 				usuario.setEmail(cell.getStringCellValue());
-				cell = cellIterator.next();
-				usuario.setContrasenia(cell.getStringCellValue());
-				cell = cellIterator.next();
-				usuario.setEstado((int) cell.getNumericCellValue());
 				System.out.println(usuario.toString());
 				usuarios.add(usuario);
 			}

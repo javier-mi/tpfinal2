@@ -28,20 +28,11 @@ public class UsuarioDAO implements IUsuarioDao {
 	public void eliminarUsuario(int usuarioId) {
 		entityManager.remove(usuarioId);
 	}
-
-	@Override
-	public boolean usuarioExiste(String email, String contrasenia) {
-		String hql = "FROM usuarios as u WHERE u.email = ? and u.contrasenia = ?";
-		int count = entityManager.createQuery(hql)
-				    .setParameter(1, email)
-		            .setParameter(2, contrasenia).getResultList().size();
-		return count > 0 ? true : false;
-	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> getUsuarios() {
-		String hql = "FROM usuarios as u ORDER BY u.id";
+		String hql = "FROM usuario as u";
 		return (List<Usuario>) entityManager.createQuery(hql).getResultList();
 	}
 
