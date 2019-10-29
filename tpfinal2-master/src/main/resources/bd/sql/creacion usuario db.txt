@@ -1,3 +1,0 @@
-mysql -u root -p
-GRANT ALL PRIVILEGES ON *.* TO 'dbUser'@'localhost' IDENTIFIED BY 'root';
-\q
