@@ -7,6 +7,7 @@ import { FotosComponent } from './fotos/fotos.component';
 import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
 import { PersonasListComponent } from './personas-list/personas-list.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
+import { PersonaEditComponent } from './persona-edit/persona-edit.component';
 
 const routes: Routes = [
 	{path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const routes: Routes = [
 	{path: 'usuarios-list', component: UsuariosListComponent},
 	{path: 'usuario-add', component: UsuarioEditComponent},
 	{path: 'usuario-edit/:id', component: UsuarioEditComponent},
-	{path: 'personas-list', component: PersonasListComponent}
+	{path: 'personas-list', component: PersonasListComponent},
+    {path: 'persona-edit/:id', component: PersonaEditComponent}
 ];
 
 @NgModule({
