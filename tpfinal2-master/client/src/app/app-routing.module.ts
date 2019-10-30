@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { FotosComponent } from './fotos/fotos.component';
 import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
+import { PersonasListComponent } from './personas-list/personas-list.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
 	{path: 'registro', component: RegistroComponent},
 	{path: 'usuarios-list', component: UsuariosListComponent},
 	{path: 'usuario-add', component: UsuarioEditComponent},
-	{path: 'usuario-edit/:id', component: UsuarioEditComponent}
+	{path: 'usuario-edit/:id', component: UsuarioEditComponent},
+	{path: 'personas-list', component: PersonasListComponent}
 ];
 
 @NgModule({

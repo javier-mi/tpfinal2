@@ -68,7 +68,7 @@ CREATE TABLE Usuario (
   nombre varchar(100) COLLATE latin1_spanish_ci NOT NULL DEFAULT '',
   apellido varchar(100) COLLATE latin1_spanish_ci NOT NULL DEFAULT '',
   email varchar(100) COLLATE latin1_spanish_ci NOT NULL DEFAULT '',
-  idRol int(10) unsigned NOT NULL,
+  id_rol int(10) unsigned NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (idRol) REFERENCES Rol(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
@@ -120,7 +120,11 @@ insert into Funcion (descripcion) values ('Profesor');
 insert into Funcion (descripcion) values ('Alumno');
 insert into Funcion (descripcion) values ('Administrativo');
 
-insert into Usuario (nombre,apellido,email,idRol) values ('Oscar','Rodriguez','spyrofran@gmail.com',1);
-insert into Usuario (nombre,apellido,email,idRol) values ('Julio','Rodriguez','spyrofran@gmail.com',2);
-insert into Usuario (nombre,apellido,email,idRol) values ('Mario','Rodriguez','spyrofran@gmail.com',2);
+insert into Usuario (id,nombre,apellido,email,id_rol) values (1,'Oscar','Rodriguez','spyrofran@gmail.com',1);
+insert into Usuario (id,nombre,apellido,email,id_rol) values (2,'Julio','Rodriguez','spyrofran@gmail.com',2);
+insert into Usuario (id,nombre,apellido,email,id_rol) values (3,'Mario','Rodriguez','spyrofran@gmail.com',2);
+
+insert into Persona (id,nombre,apellido,dni,id_funcion,matricula) values (1,'Javier','Testa',39044332,1,956475);
+insert into Persona (id,nombre,apellido,dni,id_funcion,matricula) values (2,'Natalia','Testa',42657467,1,956432);
+insert into Persona (id,nombre,apellido,dni,id_funcion,matricula) values (3,'Juan','Testa',43564565,1,956443);
 

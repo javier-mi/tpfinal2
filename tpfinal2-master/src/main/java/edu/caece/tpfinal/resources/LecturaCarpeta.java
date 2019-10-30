@@ -45,8 +45,8 @@ public class LecturaCarpeta {
 			  for (int i=0; i< archivos.length; i++) {
 				  byte[] archivo = Files.readAllBytes(Paths.get(archivos[i].getPath()));
 		    	  Foto foto = new Foto();
-		    	  foto.setUsuario(archivos[i].getName());
-		    	  foto.setFoto(archivo);
+		    	  foto.setIdPersona(archivos[i].getName());
+		    	  foto.setArchivo(archivo);
 		    	  //System.out.println(foto.toString());
 		    	  fotos.add(foto);
 			  }

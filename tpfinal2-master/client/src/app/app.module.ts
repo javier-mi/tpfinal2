@@ -13,8 +13,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { FotosComponent } from './fotos/fotos.component';
-import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
+import { PersonasListComponent } from './personas-list/personas-list.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
 
 const routes: Route[] = [
@@ -24,7 +24,8 @@ const routes: Route[] = [
   {path: 'registro', component: RegistroComponent},
   {path: 'fotos', component: FotosComponent},
   {path: 'usuario-edit', component: UsuarioEditComponent},
-  {path: 'usuarios-list', component: UsuariosListComponent}
+  {path: 'usuarios-list', component: UsuariosListComponent},
+  {path: 'personas-list', component: PersonasListComponent}
 ];
 
 @NgModule({
@@ -34,8 +35,8 @@ const routes: Route[] = [
     LoginComponent,
     RegistroComponent,
     FotosComponent,
-    UsuariosComponent,
     UsuariosListComponent,
+    PersonasListComponent,
     UsuarioEditComponent
   ],
   imports: [

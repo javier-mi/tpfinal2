@@ -5,35 +5,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Foto") 
-public class Foto {
+@Table(name="Registro") 
+public class Registro {
 	
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
-	@Lob
-	@Column(name = "archivo")
-	private byte[] archivo;
-	
-	@Column(name="id_persona")
+	@Column(name = "id_persona")
 	private String idPersona;
 	
-	public Foto(byte[] archivo, 
-				String idPersona) {
-		this.archivo = archivo;
-		this.idPersona = idPersona;
+	@Column(name = "fecha_ingreso")
+	private String fechaIngreso;
+	
+	public Registro() {
+		
 	}
 	
-	public Foto() {
-		
+	public Registro(String idPersona,
+					String fechaIngreso) {
+		this.idPersona = idPersona;
+		this.fechaIngreso = fechaIngreso;
 	}
 
 	public Integer getId() {
@@ -44,14 +42,6 @@ public class Foto {
 		this.id = id;
 	}
 
-	public byte[] getArchivo() {
-		return archivo;
-	}
-
-	public void setArchivo(byte[] archivo) {
-		this.archivo = archivo;
-	}
-
 	public String getIdPersona() {
 		return idPersona;
 	}
@@ -59,12 +49,13 @@ public class Foto {
 	public void setIdPersona(String idPersona) {
 		this.idPersona = idPersona;
 	}
-	
-	public String toString (){
-        String datosFoto = "Foto::" +
-        					archivo + ":" +
-        					idPersona;
-        return datosFoto;
-    }
+
+	public String getFechaIngreso() {
+		return fechaIngreso;
+	}
+
+	public void setFechaIngreso(String fechaIngreso) {
+		this.fechaIngreso = fechaIngreso;
+	}
 
 }

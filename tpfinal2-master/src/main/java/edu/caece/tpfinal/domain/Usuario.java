@@ -28,7 +28,7 @@ public class Usuario {
 	@Column(name="email")
 	private String email;
 
-	@Column(name = "idRol")
+	@Column(name = "id_rol")
 	private Integer idRol;
 
 	public Usuario() {
@@ -87,9 +87,10 @@ public class Usuario {
 	
 	public String toString (){
         String datosUsuario = "Usuario::" + 
-        					  nombre + ":" + 
-        					  apellido +":" + 
-        					  email;
+        					   nombre + ":" + 
+        					   apellido +":" + 
+        					   email +":" + 
+        					   idRol;
         return datosUsuario;
     }
 
