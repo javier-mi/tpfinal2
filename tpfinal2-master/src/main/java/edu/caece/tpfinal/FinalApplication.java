@@ -12,19 +12,20 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 
 import edu.caece.tpfinal.repository.IUsuarioRepositorio;
 import edu.caece.tpfinal.repository.IFotoRepositorio;
-
+import edu.caece.tpfinal.repository.IPersonaRepositorio;
+import edu.caece.tpfinal.domain.Persona;
 import edu.caece.tpfinal.domain.Usuario;
 import edu.caece.tpfinal.domain.Foto;
 
 import edu.caece.tpfinal.resources.LecturaCarpeta;
 import edu.caece.tpfinal.resources.LecturaExcel;
 
-
 @SpringBootApplication(scanBasePackages= {
 	"edu.caece.tpfinal",
 	"edu.caece.tpfinal.config",
 	"edu.caece.tpfinal.config.security"
 })
+
 //@ComponentScan(basePackages= { "Error: Could not find or load main class edu.caece.tpfinal.FinalApplication" })
 //@EnableAutoConfiguration
 @Configuration
@@ -33,8 +34,13 @@ public class FinalApplication {
 
 	public static void main(String[] args) {
 		try {
+			
+			// Inicio Aplicacion
 			SpringApplication.run(FinalApplication.class, args);
-			//probar();
+			
+			// Se usa para hacer pruebas
+			// probar();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -42,10 +48,14 @@ public class FinalApplication {
 
 	@Bean
 	ApplicationRunner init(IUsuarioRepositorio usuarioRepositorio,
+						   IPersonaRepositorio personaRepositorio,	
 						   IFotoRepositorio fotoRepositorio) {
 		return args -> {
-			//crearTablaUsuarios(usuarioRepositorio);
-			//crearTablaFotos(fotoRepositorio);
+			
+			// Si la BD esta creada comentar estas líneas
+			crearTablaUsuarios(usuarioRepositorio);
+			crearTablaPersonas(personaRepositorio);
+			crearTablaFotos(fotoRepositorio);
 			
 		};
 		
@@ -55,6 +65,15 @@ public class FinalApplication {
 		try {
 			ArrayList<Usuario> usuarios = obtenerDatosUsuarios();
 			guardarDatosUsuarios(usuarioRepositorio, usuarios);
+		} catch (Exception e) {
+			throw new Exception("method crearTablaUsuarios" + e.getMessage());
+		}
+	}
+	
+	private void crearTablaPersonas(IPersonaRepositorio personaRepositorio) throws Exception {
+		try {
+			ArrayList<Persona> personas = obtenerDatosPersonas();
+			guardarDatosPersonas(personaRepositorio, personas);
 		} catch (Exception e) {
 			throw new Exception("method crearTablaUsuarios" + e.getMessage());
 		}
@@ -81,6 +100,19 @@ public class FinalApplication {
 			return usuarios;
 		}
 	}
+	
+	@SuppressWarnings("finally")
+	public static ArrayList<Persona> obtenerDatosPersonas() throws Exception {
+		ArrayList<Persona> personas = null;
+		try {
+			LecturaExcel lecturaExcel = new LecturaExcel();
+			personas = lecturaExcel.obtenerPersonas();
+		} catch (Exception e) {
+			throw new Exception ("method obtenerFotos" + e.getMessage());
+		} finally {
+			return personas;
+		}
+	}
 
 	public void guardarDatosUsuarios(IUsuarioRepositorio usuarioRepositorio,
 			                         ArrayList<Usuario> usuarios) throws Exception {
@@ -91,6 +123,18 @@ public class FinalApplication {
 			usuarioRepositorio.findAll().forEach(System.out::println);
 		} catch (Exception e) {
 			throw new Exception ("method guardarDatosUsuarios" + e.getMessage());
+		}
+	}
+	
+	public void guardarDatosPersonas(IPersonaRepositorio personaRepositorio,
+            ArrayList<Persona> personas) throws Exception {
+		try {
+			for (Persona persona: personas) {
+				personaRepositorio.save(persona);
+			}
+			personaRepositorio.findAll().forEach(System.out::println);
+		} catch (Exception e) {
+			throw new Exception ("method guardarDatosPersonas" + e.getMessage());
 		}
 	}
 	
@@ -121,11 +165,14 @@ public class FinalApplication {
 	
 	public static void probar() throws Exception {
 		try {
+			
 			LecturaExcel lecturaExcel = new LecturaExcel();
 			lecturaExcel.obtenerUsuarios();
+			lecturaExcel.obtenerPersonas();
 			
 			LecturaCarpeta lecturaCarpeta = new LecturaCarpeta();
 			lecturaCarpeta.recorrerCarpeta();
+			
 		} catch (Exception e) {
 			throw new Exception ("method probar" + e.getMessage());
 		}

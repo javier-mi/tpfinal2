@@ -32,8 +32,9 @@
           <tbody>
             <tr mdbTableCol *ngFor="let foto of fotos">
               <td>{{foto.id}}</td>
-              <td>{{foto.usuario}}</td>
-              <td>{{foto.foto}}</td>
+              <td>{{foto.nombreArchivo}}</td>
+              <td>{{foto.idPersona}}</td>
+              <td><img id="profileImage" src="data:image/jpg;base64,{{foto.archivo}}"></td>
             </tr>
           </tbody>
         </table>

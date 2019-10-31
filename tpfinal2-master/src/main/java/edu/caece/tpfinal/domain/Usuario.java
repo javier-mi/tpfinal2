@@ -2,6 +2,10 @@ package edu.caece.tpfinal.domain;
 
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,14 +14,15 @@ import javax.persistence.Id;
 
 @Entity
 @Table(name="usuario") 
-public class Usuario {
+public class Usuario implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    @Column(name = "id", updatable = false, nullable = false)
+	private Integer id = 0;
 
 	@Column(name="nombre")
 	private String nombre;
@@ -29,7 +34,7 @@ public class Usuario {
 	private String email;
 
 	@Column(name = "id_rol")
-	private Integer idRol;
+	private Double idRol;
 
 	public Usuario() {
 	
@@ -38,7 +43,7 @@ public class Usuario {
 	public Usuario(String nombre,
 				   String apellido,
 				   String email,
-				   int idRol) {
+				   double idRol) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
@@ -77,21 +82,19 @@ public class Usuario {
 		this.email = email;
 	}
 	
-	public Integer getIdRol() {
+	public Double getIdRol() {
 		return idRol;
 	}
 
-	public void setIdRol(Integer idRol) {
+	public void setIdRol(Double idRol) {
 		this.idRol = idRol;
 	}
-	
+
 	public String toString (){
         String datosUsuario = "Usuario::" + 
-        					   nombre + ":" + 
-        					   apellido +":" + 
-        					   email +":" + 
-        					   idRol;
+        					  nombre + ":" + 
+        					  apellido + ":" + 
+        					  email;
         return datosUsuario;
     }
-
 }

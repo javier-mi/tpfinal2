@@ -1,16 +1,21 @@
 package edu.caece.tpfinal.domain;
+import java.io.Serializable;
+
 import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="Persona") 
-public class Persona {
+public class Persona implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    @Column(name = "id", updatable = false, nullable = false)
+	private Integer id = 0;
 	
 	@Column(name = "nombre")
 	private String nombre;
@@ -81,5 +86,14 @@ public class Persona {
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
+	
+	public String toString (){
+        String datosPersona = "Persona::" + 
+        					  nombre + ":" + 
+        					  apellido + ":" + 
+        					  dni + ":" + 
+        					  matricula;
+        return datosPersona;
+    }
 
 }
