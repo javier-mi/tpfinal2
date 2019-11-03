@@ -6,7 +6,8 @@
             <form #usuarioForm="ngForm" (ngSubmit)="save(usuarioForm.value)">
               <mat-card-title>Modificar Usuario</mat-card-title>
               <mat-card-content>
-                <input type="hidden" name="href" [(ngModel)]="usuario.href">
+              <input type="hidden" name="href" [(ngModel)]="usuario.href">
+              <input id="edit-formula" type="hidden" name="href" [(ngModel)]="usuario.usuarioData">
                 <mat-form-field>
                     <input matInput placeholder="Nombre" [(ngModel)]="usuario.nombre"
                           required name="nombre" #nombre />
@@ -22,8 +23,10 @@
               </mat-card-content>
               <mat-card-footer>
               <button id="submit1" mat-raised-button color="primary" type="submit">Eliminar</button>
-              <button id="submit2" mat-raised-button color="primary" type="submit">Guardar</button>
-              <button mat-raised-button color="primary" [routerLink]="['/fotos']">Ver fotos</button>
+              <span style="display:inline-block; width: 0.5em;"></span>
+              <button id="submit2" mat-raised-button color="primary" type="submit" [disabled]="!usuarioForm.form.valid">Guardar</button>
+              <span style="display:inline-block; width: 0.5em;"></span>
+              <a mat-raised-button color="primary" routerLink="/usuarios-list">Cancelar</a>
               </mat-card-footer>  
             </form>
         </fieldset>

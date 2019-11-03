@@ -22,40 +22,28 @@ export class UsuarioEditComponent implements OnInit {
   }
 
  ngOnInit() {
-    alert('hola init');
     this.sub = this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
       	this.usuariosService.get(id).subscribe(usuario => {
       		if (null) {
-      		alert("entro hardcodeado");
             this.usuario.id = usuario.id;
             this.usuario.nombre = usuario.nombre;
             this.usuario.apellido = usuario.apellido;
             this.usuario.email = usuario.email;
-            alert("Se guardo correctamente.");
-          } else {
-            alert("Ha ocurrido un error.");
           }
-          alert('se va a la lista');
           this.gotoList();
     	}, error => console.error(error));
-    	alert('despues del service');
       }
-      alert('sale del if');
     }, error => console.error(error));
-    alert('chau init');
   }
 
   gotoList() {
-    alert('voy a la list');
     this.router.navigate(['/usuarios-list']);
   }
 
   save(form: NgForm) {
-    alert('save');  
     this.usuariosService.save(form).subscribe(result => {
-    alert("save complete");
       this.gotoList();
     }, error => console.error(error));
   }

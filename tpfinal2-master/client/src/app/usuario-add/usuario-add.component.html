@@ -6,10 +6,12 @@
             <form #usuarioForm="ngForm" (ngSubmit)="save(usuarioForm.value)">
               <mat-card-title>Agregar Usuario</mat-card-title>
               <mat-card-content>
+              <input type="hidden" name="href" [(ngModel)]="usuario.href">
+              <input id="edit-formula" type="hidden" name="href" [(ngModel)]="usuario.usuarioData">
                 <input type="hidden" name="href" [(ngModel)]="usuario.href">
                 <mat-form-field>
                     <input matInput placeholder="Nombre" [(ngModel)]="usuario.nombre"
-                          required name="nombre" #nombre />
+                          required name="nombre" #nombre/>
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Apellido" [(ngModel)]="usuario.apellido"
@@ -21,8 +23,10 @@
                 </mat-form-field>
               </mat-card-content>
               <mat-card-footer>
-              <button id="submit" mat-raised-button color="primary" type="submit">Guardar</button>
-              </mat-card-footer>  
+              <button id="submit" mat-raised-button color="primary" type="submit" [disabled]="!usuarioForm.form.valid">Guardar</button>
+              <span style="display:inline-block; width: 0.5em;"></span>
+              <a mat-raised-button color="primary" routerLink="/usuarios-list">Cancelar</a>
+              </mat-card-footer>
             </form>
         </fieldset>
     </div>

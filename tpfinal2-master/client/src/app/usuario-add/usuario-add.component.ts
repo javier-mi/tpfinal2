@@ -26,14 +26,11 @@ export class UsuarioAddComponent implements OnInit {
   }
 
   gotoList() {
-    alert('voy a la list');
     this.router.navigate(['/usuarios-list']);
   }
 
   save(form: NgForm) {
-    alert('save');  
     this.usuariosService.save(form).subscribe(result => {
-    alert("save complete");
       this.gotoList();
     }, error => console.error(error));
   }

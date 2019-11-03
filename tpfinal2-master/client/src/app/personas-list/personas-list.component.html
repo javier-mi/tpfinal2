@@ -21,13 +21,18 @@
               <!--<td>{{persona.funcion}}</td>-->
               <td>{{persona.matricula}}</td>
               <td>
-                <a mat-button [routerLink]="['/persona-edit', persona.id]">
-                  <img src="assets/img/iconos/editar.png" width="25" height="25">
+                <a mat-button title="Modificar persona" [routerLink]="['/persona-edit', persona.id]">
+                		<img src="assets/img/iconos/editar.png" width="25" height="25">
                 </a>
               </td>
               <td>
-                <a mat-button [routerLink]="['/persona-edit', persona.id]">
+                <a mat-button title="Eliminar persona" [routerLink]="['/persona-edit', persona.id]">
                   <img src="assets/img/iconos/eliminar.png" width="25" height="25">
+                </a>
+              </td>
+              <td>
+                <a mat-button title="Ver fotos" [routerLink]="['/fotos']">     
+                  <img src="assets/img/iconos/user.png" tooltip="Ver fotos" width="25" height="25">
                 </a>
               </td>
             </tr>
