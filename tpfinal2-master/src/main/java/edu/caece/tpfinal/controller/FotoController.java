@@ -5,10 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.caece.tpfinal.domain.Foto;
@@ -22,18 +19,13 @@ public class FotoController {
 	private IFotoRepositorio fotoRepositorio;
 	
 	@GetMapping("/fotos")
-	public Collection<Foto> users() {
-		return fotoRepositorio.findAll().stream().collect(Collectors.toList());
+	public Collection<Foto> fotos() throws Exception {
+		Collection<Foto> fotos = null;
+		try {
+			fotos = fotoRepositorio.findAll().stream().collect(Collectors.toList());
+		} catch (Exception e) {
+			throw new Exception("method fotossss :: " + e.getMessage());
+		}
+		return fotos;
 	}
-	
-	@PostMapping("/fotos/save")
-	public void save(@RequestBody Foto foto) {
-		this.fotoRepositorio.save(foto);
-	}
-	
-	@DeleteMapping("/fotos/delete/{id}")
-	public void delete(Long id) {
-
-	}
-
 }

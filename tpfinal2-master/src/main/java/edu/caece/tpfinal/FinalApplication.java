@@ -49,7 +49,7 @@ public class FinalApplication {
 	@Bean
 	ApplicationRunner init(IUsuarioRepositorio usuarioRepositorio,
 						   IPersonaRepositorio personaRepositorio,	
-						   IFotoRepositorio fotoRepositorio) {
+						   IFotoRepositorio fotoRepositorio) throws Exception {
 		return args -> {
 			
 			// Si la BD esta creada comentar estas líneas
@@ -119,8 +119,12 @@ public class FinalApplication {
 		try {
 			for (Usuario usuario: usuarios) {
 				usuarioRepositorio.save(usuario);
+				//Usuario usu = usuarioRepositorio.findById(usuario.getId());
+				//usuarioRepositorio.deleteUsuarioById(usuario.getId());
+				//System.out.println(usu.toString());
 			}
 			usuarioRepositorio.findAll().forEach(System.out::println);
+			
 		} catch (Exception e) {
 			throw new Exception ("method guardarDatosUsuarios" + e.getMessage());
 		}
@@ -133,6 +137,7 @@ public class FinalApplication {
 				personaRepositorio.save(persona);
 			}
 			personaRepositorio.findAll().forEach(System.out::println);
+			
 		} catch (Exception e) {
 			throw new Exception ("method guardarDatosPersonas" + e.getMessage());
 		}

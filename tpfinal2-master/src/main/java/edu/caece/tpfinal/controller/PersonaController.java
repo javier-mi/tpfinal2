@@ -22,23 +22,37 @@ public class PersonaController {
 	private IPersonaRepositorio personaRepositorio;
 	
 	@GetMapping("/personas")
-	public Collection<Persona> users() {
-		return personaRepositorio.findAll().stream().collect(Collectors.toList());
+	public Collection<Persona> personas() throws Exception {
+		Collection<Persona> personas = null;
+		try {
+			personas = personaRepositorio.findAll().stream().collect(Collectors.toList());
+		} catch (Exception e) {
+			throw new Exception("method personas :: " + e.getMessage());
+		}
+		return personas;
 	}
 	
 	@GetMapping("/personas/{id}")
-	public Persona persona(String id) {
+	public Persona persona(String id) throws Exception {
 		return personaRepositorio.getOne(id);
 	}
 	
 	@PostMapping("/personas/save")
-	public void save(@RequestBody Persona persona) {
-		this.personaRepositorio.save(persona);
+	public void save(@RequestBody Persona persona) throws Exception {
+		try {
+			this.personaRepositorio.save(persona);
+		} catch (Exception e) {
+			throw new Exception("method persona :: save :: " + e.getMessage());
+		}
 	}
 	
 	@DeleteMapping("/personas/delete/{id}")
-	public void deleteById(String id) {
-		this.personaRepositorio.deleteById(id);
+	public void deleteById(String id) throws Exception {
+		try {
+			this.personaRepositorio.deleteById(id);
+		} catch (Exception e) {
+			throw new Exception("method persona :: deleteById :: " + e.getMessage());
+		}
 	}
 
 }

@@ -16,7 +16,7 @@ export class UsuariosListComponent implements OnInit {
   ngOnInit() {
     this.usuariosService.getAll().subscribe(data => {
       this.usuarios = data;
-    });
+    }, error => console.error(error));
   }
 
   remove(href) {

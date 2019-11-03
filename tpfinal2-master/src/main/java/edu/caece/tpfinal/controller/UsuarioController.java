@@ -1,6 +1,7 @@
 package edu.caece.tpfinal.controller;
 
 import java.util.Collection;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,22 +23,34 @@ public class UsuarioController {
 	private IUsuarioRepositorio usuarioRepositorio;
 	
 	@GetMapping("/usuarios")
-	public Collection<Usuario> users() {
-		return usuarioRepositorio.findAll().stream().collect(Collectors.toList());
+	public Collection<Usuario> usuarios() throws Exception {
+		Collection<Usuario> usuarios = null;
+		try {
+			usuarios = usuarioRepositorio.findAll().stream().collect(Collectors.toList());
+		} catch (Exception e) {
+			throw new Exception("method usuarios :: " + e.getMessage());
+		}
+		return usuarios;
 	}
 	
 	@GetMapping("/usuarios/{id}")
-	public Usuario user(String id) {
-		return usuarioRepositorio.getOne(id);
+	public Optional<Usuario> user(String id) throws Exception {
+		Optional<Usuario>  usuario = null;
+		try {
+			usuario = usuarioRepositorio.findById(id);
+		} catch (Exception e) {
+			throw new Exception("method usuarios :: " + e.getMessage());
+		}
+		return usuario;
 	}
 	
 	@PostMapping("/usuarios/save")
-	public void save(@RequestBody Usuario usuario) {
+	public void save(@RequestBody Usuario usuario) throws Exception {
 		this.usuarioRepositorio.save(usuario);
 	}
 	
 	@DeleteMapping("/usuarios/delete")
-	public void delete(@RequestBody Usuario usuario) {
+	public void delete(@RequestBody Usuario usuario) throws Exception {
 		this.usuarioRepositorio.delete(usuario);
 	}
 

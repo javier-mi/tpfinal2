@@ -6,10 +6,12 @@ import edu.caece.tpfinal.domain.Usuario;
 
 public interface IUsuarioDao {
 		
-	List<Usuario> getUsuarios();
-
-	Usuario getUsuarioById(int usuarioId);
+	List<Usuario> getUsuarios() throws Exception;
 	
-	void deleteUsuario(int usuarioId);
+	public Usuario findById(int id) throws Exception;
+
+	Usuario getUsuarioById(int usuarioId) throws Exception;
+	
+	void deleteUsuario(int usuarioId) throws Exception;
 	
 }

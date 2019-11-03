@@ -15,7 +15,7 @@ public class Persona implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     @Column(name = "id", updatable = false, nullable = false)
-	private Integer id = 0;
+	private int id = 0;
 	
 	@Column(name = "nombre")
 	private String nombre;
@@ -47,11 +47,11 @@ public class Persona implements Serializable {
 		this.matricula = matricula;
 	}
 	
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
