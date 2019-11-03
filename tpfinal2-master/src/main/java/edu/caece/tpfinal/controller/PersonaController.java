@@ -26,14 +26,19 @@ public class PersonaController {
 		return personaRepositorio.findAll().stream().collect(Collectors.toList());
 	}
 	
+	@GetMapping("/personas/{id}")
+	public Persona persona(String id) {
+		return personaRepositorio.getOne(id);
+	}
+	
 	@PostMapping("/personas/save")
 	public void save(@RequestBody Persona persona) {
 		this.personaRepositorio.save(persona);
 	}
 	
 	@DeleteMapping("/personas/delete/{id}")
-	public void delete(Long id) {
-
+	public void deleteById(String id) {
+		this.personaRepositorio.deleteById(id);
 	}
 
 }

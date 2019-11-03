@@ -26,13 +26,15 @@ export class PersonaEditComponent implements OnInit, OnDestroy {
       if (id) {
         this.personasService.get(id).subscribe((persona: any) => {
           if (persona) {
-            this.persona = persona;
-            this.persona.href = persona._links.self.href;
+            this.persona.nombre = persona.nombre;
+            this.persona.apellido = persona.apellido;
+            this.persona.dni = persona.dni;
             this.persona.matricula = persona.matricula;
+    	    alert("Se guardo correctamente");
           } else {
-            console.log(`La persona con id '${id}' no fue encontrada , volviendo al listado`);
-            this.gotoList();
+	        alert("Ha ocurrido un error");
           }
+          this.gotoList();
         });
       }
     });

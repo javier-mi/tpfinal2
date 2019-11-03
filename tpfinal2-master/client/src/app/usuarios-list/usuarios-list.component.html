@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
   <legend>Usuarios</legend>
+  <form #usuarioForm="ngForm" (ngSubmit)="remove(usuarioForm.value)">
     <mat-card>
       <mat-card-content>
         <button class="btn btn-primary" [routerLink]="['/usuario-add']">Agregar usuario</button>
@@ -25,13 +26,14 @@
                 </a>
               </td>
               <td>
-                <a mat-button [routerLink]="['/usuario-edit', usuario.id]">
+                  <button id="submit" mat-button type="submit" onclick="remove(1)">
                   <img src="assets/img/iconos/eliminar.png" width="25" height="25">
-                </a>
+                </button>
               </td>
             </tr>
           </tbody>
         </table>
       </mat-card-content>
     </mat-card>
+    </form>
 </div>

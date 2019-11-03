@@ -36,9 +36,9 @@ public class UsuarioController {
 		this.usuarioRepositorio.save(usuario);
 	}
 	
-	@DeleteMapping("/usuarios/delete/{id}")
-	public void delete(Long id) {
-
+	@DeleteMapping("/usuarios/delete")
+	public void delete(@RequestBody Usuario usuario) {
+		this.usuarioRepositorio.delete(usuario);
 	}
 
 }

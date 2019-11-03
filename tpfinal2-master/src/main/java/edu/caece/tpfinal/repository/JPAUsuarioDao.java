@@ -27,7 +27,12 @@ public class JPAUsuarioDao implements IUsuarioDao {
 	
 	@Override
 	public Usuario getUsuarioById(int usuarioId) {
-		return em.createQuery("SELECT u FROM usuario WHERE CAST(u.usuario AS Usuario) u where u.id = :usuarioId", Usuario.class).getSingleResult();
+		return em.createQuery("SELECT u FROM usuario WHERE CAST(u.usuario AS Usuario) u WHERE u.id = :usuarioId", Usuario.class).getSingleResult();
+	}
+	
+	@Override
+	public void deleteUsuario(int usuarioId) {
+		em.createQuery("DELETE FROM usuario WHERE u.id = :usuarioId");
 	}
 
 }

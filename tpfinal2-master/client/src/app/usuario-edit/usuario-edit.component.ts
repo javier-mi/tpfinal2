@@ -29,9 +29,11 @@ export class UsuarioEditComponent implements OnInit, OnDestroy {
             this.usuario.nombre = usuario.nombre;
             this.usuario.apellido = usuario.apellido;
             this.usuario.email = usuario.email;
+            alert("Se guardo correctamente.");
           } else {
-            this.gotoList();
+            alert("Ha ocurrido un error.");
           }
+          this.gotoList();
         });
       }
     });
@@ -55,10 +57,6 @@ export class UsuarioEditComponent implements OnInit, OnDestroy {
     this.usuariosService.remove(href).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
-  }
-  
-  submit() {
-
   }
   
 }

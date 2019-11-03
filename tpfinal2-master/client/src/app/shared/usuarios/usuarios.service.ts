@@ -19,16 +19,14 @@ export class UsuariosService {
 
   save(usuario: any): Observable<any> {
     let result: Observable<Object>;
-    alert(result);
-    if (usuario['href']) {
-      result = this.http.put(usuario.href, usuario);
-    } else {
-      result = this.http.post(this.API + '/usuarios' + '/save', usuario);
-    }
+    result = this.http.post(this.API + '/usuarios' + '/save', usuario);
     return result;
   }
 
-  remove(href: string) {
-    return this.http.delete(href);
+  remove(usuario: any): Observable<any> {
+    let result: Observable<Object>;
+    result = this.http.delete(this.API + '/usuarios' + '/delete', usuario);
+    alert("delete by post");
+    return result;
   }
 }
