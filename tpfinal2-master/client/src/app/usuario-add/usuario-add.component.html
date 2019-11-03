@@ -4,7 +4,7 @@
       <div align="center"> 
         <fieldset>
             <form #usuarioForm="ngForm" (ngSubmit)="save(usuarioForm.value)">
-              <mat-card-title>Modificar Usuario</mat-card-title>
+              <mat-card-title>Agregar Usuario</mat-card-title>
               <mat-card-content>
                 <input type="hidden" name="href" [(ngModel)]="usuario.href">
                 <mat-form-field>
@@ -22,7 +22,6 @@
               </mat-card-content>
               <mat-card-footer>
               <button id="submit" mat-raised-button color="primary" type="submit">Guardar</button>
-              <button mat-raised-button color="primary" [routerLink]="['/fotos']">Ver fotos</button>
               </mat-card-footer>  
             </form>
         </fieldset>

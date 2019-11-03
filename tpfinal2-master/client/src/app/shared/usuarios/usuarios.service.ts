@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 @Injectable({providedIn: 'root'})
 export class UsuariosService {
   public API = '//localhost:8080';
-  public USUARIO_API = this.API + '/usuarios';
 
   constructor(private http: HttpClient) {
   }
@@ -15,15 +14,16 @@ export class UsuariosService {
   }
   
   get(id: string) {
-    return this.http.get(this.USUARIO_API + '/' + id);
+    return this.http.get(this.API + '/usuarios' + '/' + id);
   }
 
   save(usuario: any): Observable<any> {
     let result: Observable<Object>;
+    alert(result);
     if (usuario['href']) {
       result = this.http.put(usuario.href, usuario);
     } else {
-      result = this.http.post(this.USUARIO_API + '/save', usuario);
+      result = this.http.post(this.API + '/usuarios' + '/save', usuario);
     }
     return result;
   }

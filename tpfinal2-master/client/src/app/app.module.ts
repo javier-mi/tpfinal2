@@ -15,6 +15,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { FotosComponent } from './fotos/fotos.component';
 import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
 import { PersonasListComponent } from './personas-list/personas-list.component';
+import { UsuarioAddComponent } from './usuario-add/usuario-add.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
 import { PersonaEditComponent } from './persona-edit/persona-edit.component';
 
@@ -24,6 +25,7 @@ const routes: Route[] = [
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
   {path: 'fotos', component: FotosComponent},
+  {path: 'usuario-add', component: UsuarioAddComponent},
   {path: 'usuario-edit', component: UsuarioEditComponent},
   {path: 'persona-edit', component: PersonaEditComponent},
   {path: 'usuarios-list', component: UsuariosListComponent},
@@ -39,6 +41,7 @@ const routes: Route[] = [
     FotosComponent,
     UsuariosListComponent,
     PersonasListComponent,
+    UsuarioAddComponent,
     UsuarioEditComponent,
     PersonaEditComponent
   ],

@@ -26,6 +26,11 @@ public class UsuarioController {
 		return usuarioRepositorio.findAll().stream().collect(Collectors.toList());
 	}
 	
+	@GetMapping("/usuarios/{id}")
+	public Usuario user(String id) {
+		return usuarioRepositorio.getOne(id);
+	}
+	
 	@PostMapping("/usuarios/save")
 	public void save(@RequestBody Usuario usuario) {
 		this.usuarioRepositorio.save(usuario);

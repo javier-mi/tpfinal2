@@ -24,20 +24,10 @@ public class JPAUsuarioDao implements IUsuarioDao {
 	public List<Usuario> getUsuarios() {
 		return em.createQuery("SELECT u FROM usuario u").getResultList();
 	}
-
+	
 	@Override
 	public Usuario getUsuarioById(int usuarioId) {
-		return null;
-	}
-
-	@Override
-	public void agregarUsuario(Usuario usuario) {
-		
-	}
-
-	@Override
-	public void eliminarUsuario(int usuarioId) {
-
+		return em.createQuery("SELECT u FROM usuario WHERE CAST(u.usuario AS Usuario) u where u.id = :usuarioId", Usuario.class).getSingleResult();
 	}
 
 }

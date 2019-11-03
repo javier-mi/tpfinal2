@@ -7,11 +7,7 @@ import edu.caece.tpfinal.domain.Usuario;
 public interface IUsuarioDao {
 	
 	Usuario getUsuarioById(int usuarioId);
-
-	void agregarUsuario(Usuario usuario);
 	
-	void eliminarUsuario(int usuarioId);
-
 	List<Usuario> getUsuarios();
-	
+
 }

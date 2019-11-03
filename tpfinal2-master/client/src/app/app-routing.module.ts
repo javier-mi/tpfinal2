@@ -7,6 +7,7 @@ import { FotosComponent } from './fotos/fotos.component';
 import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
 import { PersonasListComponent } from './personas-list/personas-list.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
+import { UsuarioAddComponent } from './usuario-add/usuario-add.component';
 import { PersonaEditComponent } from './persona-edit/persona-edit.component';
 
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routes: Routes = [
 	{path: 'fotos', component: FotosComponent},
 	{path: 'registro', component: RegistroComponent},
 	{path: 'usuarios-list', component: UsuariosListComponent},
-	{path: 'usuario-add', component: UsuarioEditComponent},
+	{path: 'usuario-add', component: UsuarioAddComponent},
 	{path: 'usuario-edit/:id', component: UsuarioEditComponent},
 	{path: 'personas-list', component: PersonasListComponent},
     {path: 'persona-edit/:id', component: PersonaEditComponent}

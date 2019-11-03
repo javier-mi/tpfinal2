@@ -5,11 +5,11 @@ import { UsuariosService } from '../shared/usuarios/usuarios.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-usuario-edit',
-  templateUrl: './usuario-edit.component.html',
-  styleUrls: ['./usuario-edit.component.css']
+  selector: 'app-usuario-add',
+  templateUrl: './usuario-add.component.html',
+  styleUrls: ['./usuario-add.component.css']
 })
-export class UsuarioEditComponent implements OnInit, OnDestroy {
+export class UsuarioAddComponent implements OnInit, OnDestroy {
 
   usuario: any = {};
 
@@ -21,20 +21,7 @@ export class UsuarioEditComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      const id = params['id'];
-      if (id) {
-        this.usuariosService.get(id).subscribe((usuario: any) => {
-          if (usuario) {
-            this.usuario.nombre = usuario.nombre;
-            this.usuario.apellido = usuario.apellido;
-            this.usuario.email = usuario.email;
-          } else {
-            this.gotoList();
-          }
-        });
-      }
-    });
+
   }
 
   ngOnDestroy() {
@@ -42,11 +29,15 @@ export class UsuarioEditComponent implements OnInit, OnDestroy {
   }
 
   gotoList() {
+  alert("gotolist users-list");
     this.router.navigate(['/usuarios-list']);
   }
 
   save(form: NgForm) {
+  	alert("save start");
     this.usuariosService.save(form).subscribe(result => {
+      alert("save complete");
+      
       this.gotoList();
     }, error => console.error(error));
   }
@@ -58,7 +49,7 @@ export class UsuarioEditComponent implements OnInit, OnDestroy {
   }
   
   submit() {
-
+    alert("submitttt");
   }
   
 }
