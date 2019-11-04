@@ -2,7 +2,59 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  font-family: Roboto, sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #F5F5F5;
+}
+
+.custom-toolbar {
+  background: rgb(63, 81, 181) !important;
+  background: linear-gradient(147deg, rgba(63, 81, 181, 1) 0%, rgba(63, 81, 181, 1) 35%, rgba(119, 188, 201, 1) 100%) !important;
+}
+
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  border-top-color: #000000;
+  animation: spinner .8s linear infinite;
+}
+
+.alert {
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.container{
+  margin: 1% 0;
 }
