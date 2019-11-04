@@ -6,8 +6,9 @@ import { RegistroComponent } from './registro/registro.component';
 import { FotosComponent } from './fotos/fotos.component';
 import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
 import { PersonasListComponent } from './personas-list/personas-list.component';
-import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
 import { UsuarioAddComponent } from './usuario-add/usuario-add.component';
+import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
+import { PersonaAddComponent } from './persona-add/persona-add.component';
 import { PersonaEditComponent } from './persona-edit/persona-edit.component';
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
 	{path: 'usuario-add', component: UsuarioAddComponent},
 	{path: 'usuario-edit/:id', component: UsuarioEditComponent},
 	{path: 'personas-list', component: PersonasListComponent},
-    {path: 'persona-edit/:id', component: PersonaEditComponent}
+    {path: 'persona-edit/:id', component: PersonaEditComponent},
+    {path: 'persona-add', component: PersonaAddComponent}
 ];
 
 @NgModule({

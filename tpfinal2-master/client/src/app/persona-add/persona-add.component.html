@@ -4,36 +4,37 @@
       <div align="center"> 
         <fieldset>
             <form #personaForm="ngForm" (ngSubmit)="save(personaForm.value)">
-              <mat-card-title>Persona</mat-card-title>
+              <mat-card-title>Agregar Persona</mat-card-title>
               <mat-card-content>
+              <input type="hidden" name="href" [(ngModel)]="persona.href">
+              <input id="edit-formula" type="hidden" name="href" [(ngModel)]="persona.personaData">
                 <input type="hidden" name="href" [(ngModel)]="persona.href">
-                <input id="edit-formula" type="hidden" name="href" [(ngModel)]="persona.personaData">
                 <mat-form-field>
                     <input matInput placeholder="Nombre" [(ngModel)]="persona.nombre"
-                          required name="nombre" #nombre />
+                          required name="nombre" #nombre/>
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Apellido" [(ngModel)]="persona.apellido"
-                         name="apellido" #apellido />
+                         required name="apellido" #apellido />
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="DNI" [(ngModel)]="persona.dni"
+                  <input matInput placeholder="Dni" [(ngModel)]="persona.dni"
                         required name="dni" #dni />
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Matr&iacute;cula" [(ngModel)]="persona.matricula"
+                  <input matInput placeholder="Matricula" [(ngModel)]="persona.matricula"
                         required name="matricula" #matricula />
                 </mat-form-field>
               </mat-card-content>
               <mat-card-footer>
-              	<span style="display:inline-block; width: 0.5em;"></span>
-              	<button id="submit2" mat-raised-button color="primary" type="submit" 
-              	        [disabled]="!personaForm.form.valid">Guardar</button>
-              	<span style="display:inline-block; width: 0.5em;"></span>
-              	<a mat-raised-button color="primary" routerLink="/personas-list">Cancelar</a>
-              </mat-card-footer>  
+              <button id="submit" mat-raised-button color="primary" type="submit" [disabled]="!personaForm.form.valid">Guardar</button>
+              <span style="display:inline-block; width: 0.5em;"></span>
+              <a mat-raised-button color="primary" routerLink="/personas-list">Cancelar</a>
+              </mat-card-footer>
             </form>
         </fieldset>
     </div>
   </div>
 <div>
+
+   

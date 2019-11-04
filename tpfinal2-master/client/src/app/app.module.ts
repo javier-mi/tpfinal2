@@ -16,6 +16,7 @@ import { FotosComponent } from './fotos/fotos.component';
 import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
 import { PersonasListComponent } from './personas-list/personas-list.component';
 import { UsuarioAddComponent } from './usuario-add/usuario-add.component';
+import { PersonaAddComponent } from './persona-add/persona-add.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
 import { PersonaEditComponent } from './persona-edit/persona-edit.component';
 
@@ -27,6 +28,7 @@ const routes: Route[] = [
   {path: 'fotos', component: FotosComponent},
   {path: 'usuario-add', component: UsuarioAddComponent},
   {path: 'usuario-edit', component: UsuarioEditComponent},
+  {path: 'persona-add', component: PersonaAddComponent},
   {path: 'persona-edit', component: PersonaEditComponent},
   {path: 'usuarios-list', component: UsuariosListComponent},
   {path: 'personas-list', component: PersonasListComponent}
@@ -43,6 +45,7 @@ const routes: Route[] = [
     PersonasListComponent,
     UsuarioAddComponent,
     UsuarioEditComponent,
+    PersonaAddComponent,
     PersonaEditComponent
   ],
   imports: [
