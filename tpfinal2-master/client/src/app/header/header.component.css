@@ -1,0 +1,18 @@
+.custom-toolbar{
+    background: rgb(63, 81, 181) !important;
+    background: linear-gradient(147deg, rgba(63, 81, 181, 1) 0%, rgba(63, 81, 181, 1) 35%, rgba(119, 188, 201, 1) 100%) !important;
+  }
+
+  .toolbar-icon {
+    padding: 0 14px;
+  }
+  
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+
+  .toolbar-span{
+    margin-right: 15px;
+    font-size: smaller;
+  }
+

@@ -1,0 +1,20 @@
+mat-card {
+  text-align: center;
+  padding: 0 !important;
+}
+
+mat-card mat-card-header {
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  color: rgba(0, 0, 0, 0.54);
+  background: rgba(0, 0, 0, 0.03);
+
+}
+.icon-card {
+  font-size: 100px;
+  width: 67px;
+}

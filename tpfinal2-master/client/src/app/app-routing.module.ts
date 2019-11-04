@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './_helpers/auth.guard';
 
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
 import { CamaraComponent } from './camara/camara.component';
@@ -17,22 +20,19 @@ import { PersonasListComponent } from './personas-list/personas-list.component';
 import { IngresosListComponent } from './ingresos-list/ingresos-list.component';
 
 const routes: Routes = [
-	{path: '', redirectTo: '/login', pathMatch: 'full' },
-	
-	{path: 'login', component: LoginComponent},
-	
-	{path: 'camara', component: CamaraComponent},
-	{path: 'fotos', component: FotosComponent},
-	
-	{path: 'usuario-add', component: UsuarioAddComponent},
-	{path: 'usuario-edit/:id', component: UsuarioEditComponent},
-	{path: 'usuarios-list', component: UsuariosListComponent},
-	
-    {path: 'persona-edit/:id', component: PersonaEditComponent},
-    {path: 'persona-add', component: PersonaAddComponent},
-    {path: 'personas-list', component: PersonasListComponent},
-    
-    {path: 'ingresos-list', component: IngresosListComponent}
+	{ path: '', redirectTo: '/home', pathMatch: 'full' },
+	{ path: '', component: HomeComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'camara', component: CamaraComponent},
+    { path: 'fotos', component: FotosComponent},
+    { path: 'usuario-add', component: UsuarioAddComponent},
+    { path: 'usuario-edit', component: UsuarioEditComponent},
+    { path: 'usuarios-list', component: UsuariosListComponent},
+    { path: 'persona-add', component: PersonaAddComponent},
+    { path: 'persona-edit', component: PersonaEditComponent},
+	{ path: 'personas-list', component: PersonasListComponent},
+    // otherwise redirect to home
+    { path: '**', redirectTo: '' }
 
 ];
 

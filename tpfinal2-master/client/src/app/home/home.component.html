@@ -1,0 +1,64 @@
+<app-header></app-header>
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <mat-card>
+                <mat-card-content>
+                    <mat-card-header>
+                        <mat-card-title> Administraci&oacute;n de usuarios</mat-card-title>
+                    </mat-card-header>
+                    <span class="header-icon-card">
+                        <a [routerLink]="['/usuarios-list']">
+                            <mat-icon class="icon-card">account_box</mat-icon>
+                        </a>
+                    </span>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-6 mt-5">
+            <mat-card>
+                <mat-card-content>
+                    <mat-card-header>
+                        <mat-card-title>Administraci&oacute;n de personas</mat-card-title>
+                    </mat-card-header>
+                    <span class="header-icon-card">
+                        <a [routerLink]="['/personas-list']">
+                            <mat-icon class="icon-card">accessibility</mat-icon>
+                        </a>
+                    </span>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <mat-card>
+                <mat-card-content>
+                    <mat-card-header>
+                        <mat-card-title>Captura de im&aacute;genes</mat-card-title>
+                    </mat-card-header>
+                    <span class="header-icon-card">
+                        <a [routerLink]="['/camara']">
+                            <mat-icon class="icon-card">videocam</mat-icon>
+                        </a>
+                    </span>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-6 mt-5">
+            <mat-card>
+                <mat-card-content>
+                    <mat-card-header>
+                        <mat-card-title>Configuraci&oacute;n</mat-card-title>
+                    </mat-card-header>
+                    <span class="header-icon-card">
+                        <a [routerLink]="['/persona-add']">
+                            <mat-icon class="icon-card">build</mat-icon>
+                        </a>
+                    </span>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</section>
