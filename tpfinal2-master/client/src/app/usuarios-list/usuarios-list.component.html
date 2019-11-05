@@ -1,39 +1,59 @@
-<div class="container">
-  <div class="row">
-  <mat-card-title>Lista de usuarios</mat-card-title>
-  <form #usuarioForm="ngForm" (ngSubmit)="remove(usuarioForm.value)">
-    <mat-card>
-      <mat-card-content>
-        <button class="btn btn-primary" title ="Agregar nuevo usuario" [routerLink]="['/usuario-add']">Agregar usuario</button>
-        <table class="table table-dark table-striped table-hover">
-           <thead class="sticky-top">
-            <tr>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Email</th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr mdbTableCol *ngFor="let usuario of usuarios">
-              <td>{{usuario.nombre}}</td>
-              <td>{{usuario.apellido}}</td>
-              <td>{{usuario.email}}</td>
-              <td>
-                <a mat-button [routerLink]="['/usuario-edit', usuario.id]">
-                  <img src="assets/img/iconos/editar.png" width="25" height="25">
-                </a>
-              </td>
-              <td>
-                <a mat-button title="Eliminar persona" [routerLink]="['/usuario-edit', persona.id]">
-                  <img src="assets/img/iconos/eliminar.png" width="25" height="25">
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+<app-header></app-header>
+
+	<div class="row">
+		
+		<div class="col-md-10 col-md-offset-1">
+      
+    		<mat-card-header>
+  				<mat-card-title><br/>Lista de usuarios<br/></mat-card-title>
+  			</mat-card-header>
+  
+  			<form #usuarioForm="ngForm" (ngSubmit)="remove(usuarioForm.value)">
+    		
+    		<mat-card>
+      
+      		<mat-card-content>
+        		
+        		<button class="btn btn-primary" title ="Agregar nuevo usuario" 
+        		        [routerLink]="['/usuario-add']">Agregar usuario</button>
+        		
+        		<table class="table table-dark table-striped table-hover">
+           
+           			<thead class="sticky-top">
+            			<tr>
+              				<th>Nombre</th>
+              				<th>Apellido</th>
+              				<th>Email</th>
+              				<th></th>
+              				<th></th>
+            			</tr>
+          			</thead>
+          			
+          			<tbody>
+            
+            			<tr mdbTableCol *ngFor="let usuario of usuarios">
+            			
+              				<td>{{usuario.nombre}}</td>
+              				<td>{{usuario.apellido}}</td>
+              				<td>{{usuario.email}}</td>
+              				<td>
+                				<a mat-button [routerLink]="['/usuario-edit', usuario.id]">
+                  					<img src="assets/img/iconos/editar.png" width="25" height="25">
+                				</a>
+              				</td>
+              				<td>
+                				<a mat-button title="Eliminar persona" [routerLink]="['/usuario-edit', persona.id]">
+                  					<img src="assets/img/iconos/eliminar.png" width="25" height="25">
+                				</a>
+              				</td>
+            			</tr>
+          			</tbody>
+        		</table>
+      
       </mat-card-content>
+    
     </mat-card>
-    </form>
+   
+   </form>
+   
 </div>

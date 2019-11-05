@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonasService } from '../shared/personas/personas.service';
+import { PersonasService } from '../_services/personas.service';
 
 @Component({
   selector: 'app-ingresos-list',

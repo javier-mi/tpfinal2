@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UsuariosService } from '../shared/usuarios/usuarios.service';
+
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
+
+import { UsuarioService } from '../_services/usuario.service';
 
 @Component({
   selector: 'app-usuario-edit',
@@ -18,19 +20,16 @@ export class UsuarioEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private usuariosService: UsuariosService) {
+              private usuarioService: UsuarioService) {
   }
 
  ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
-      	this.usuariosService.get(id).subscribe(usuario => {
+      	this.usuarioService.get(id).subscribe(usuario => {
       		if (null) {
-            this.usuario.id = usuario.id;
-            this.usuario.nombre = usuario.nombre;
-            this.usuario.apellido = usuario.apellido;
-            this.usuario.email = usuario.email;
+
           }
           this.gotoList();
     	}, error => console.error(error));
@@ -43,7 +42,7 @@ export class UsuarioEditComponent implements OnInit {
   }
 
   save(form: NgForm) {
-    this.usuariosService.save(form).subscribe(result => {
+    this.usuarioService.save(form).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }
@@ -51,7 +50,7 @@ export class UsuarioEditComponent implements OnInit {
   remove(href) {
     alert("remove form id");
     alert(this.usuario.id);
-    this.usuariosService.remove(this.usuario).subscribe(result => {
+    this.usuarioService.remove(this.usuario).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }

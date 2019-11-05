@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UsuariosService } from '../shared/usuarios/usuarios.service';
+
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
+
+import { UsuarioService } from '../_services/usuario.service';
 
 @Component({
   selector: 'app-usuario-add',
@@ -18,7 +20,7 @@ export class UsuarioAddComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private usuariosService: UsuariosService) {
+              private usuarioService: UsuarioService) {
   }
 
   ngOnInit() {
@@ -30,7 +32,7 @@ export class UsuarioAddComponent implements OnInit {
   }
 
   save(form: NgForm) {
-    this.usuariosService.save(form).subscribe(result => {
+    this.usuarioService.save(form).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }
@@ -38,7 +40,7 @@ export class UsuarioAddComponent implements OnInit {
   remove(href) {
     alert("remove form id");
     alert(this.usuario.id);
-    this.usuariosService.remove(this.usuario).subscribe(result => {
+    this.usuarioService.remove(this.usuario).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }

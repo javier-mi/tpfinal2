@@ -1,38 +1,62 @@
-<div class="container">
+<app-header></app-header>
+
+<div align="center">
+
+	<br/><br/>
+	
 	<div class="row">
-		<div class="col-md-4 col-md-offset-4 well">
-      <div align="center"> 
+	
+		<div class="col-md-4 col-md-offset-4">
+
         <fieldset>
+
+        	<br/>
+        	
             <form #personaForm="ngForm" (ngSubmit)="save(personaForm.value)">
-              <mat-card-title>Agregar Persona</mat-card-title>
+              
               <mat-card-content>
-              <input type="hidden" name="href" [(ngModel)]="persona.href">
-              <input id="edit-formula" type="hidden" name="href" [(ngModel)]="persona.personaData">
+              
+              	<mat-card-title>Agregar Persona</mat-card-title>
+              
+              	<input type="hidden" name="href" [(ngModel)]="persona.href">
+              	<input id="edit-formula" type="hidden" name="href" [(ngModel)]="persona.personaData">
                 <input type="hidden" name="href" [(ngModel)]="persona.href">
+                
                 <mat-form-field>
                     <input matInput placeholder="Nombre" [(ngModel)]="persona.nombre"
                           required name="nombre" #nombre/>
-                </mat-form-field>
+                </mat-form-field><br/>
+                
                 <mat-form-field>
                   <input matInput placeholder="Apellido" [(ngModel)]="persona.apellido"
                          required name="apellido" #apellido />
-                </mat-form-field>
+                </mat-form-field><br/>
+                
                 <mat-form-field>
                   <input matInput placeholder="Dni" [(ngModel)]="persona.dni"
                         required name="dni" #dni />
-                </mat-form-field>
+                </mat-form-field><br/>
+                
                 <mat-form-field>
                   <input matInput placeholder="Matricula" [(ngModel)]="persona.matricula"
                         required name="matricula" #matricula />
-                </mat-form-field>
-              </mat-card-content>
-              <mat-card-footer>
-              <button id="submit" mat-raised-button color="primary" type="submit" [disabled]="!personaForm.form.valid">Guardar</button>
-              <span style="display:inline-block; width: 0.5em;"></span>
-              <a mat-raised-button color="primary" routerLink="/personas-list">Cancelar</a>
-              </mat-card-footer>
-            </form>
-        </fieldset>
-    </div>
-  </div>
-<div>   
+                </mat-form-field><br/>
+
+              	<mat-card-footer><br/>
+              		<button id="submit" mat-raised-button color="primary" type="submit" [disabled]="!personaForm.form.valid">Guardar</button>
+              		<span style="display:inline-block; width: 0.5em;"></span>
+              		<a mat-raised-button color="primary" routerLink="/personas-list">Cancelar</a>
+              	</mat-card-footer>
+              
+            	</mat-card-content>
+            
+           	 </form>
+            
+        	</fieldset>
+
+		</div>
+    
+ 	</div>
+ 
+ </div>
+ 

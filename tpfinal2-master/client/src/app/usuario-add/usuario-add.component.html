@@ -1,36 +1,57 @@
-<div class="container">
+<app-header></app-header>
+
+<div align="center">
+
+	<br/><br/>
+	
 	<div class="row">
-		<div class="col-md-4 col-md-offset-4 well">
-      <div align="center"> 
+	
+		<div class="col-md-4 col-md-offset-4">
+
         <fieldset>
+        	
+        	<br/>
+        	
             <form #usuarioForm="ngForm" (ngSubmit)="save(usuarioForm.value)">
-              <mat-card-title>Agregar Usuario</mat-card-title>
+
               <mat-card-content>
+              
+              <mat-card-title>Agregar Usuario</mat-card-title>
+              
               <input type="hidden" name="href" [(ngModel)]="usuario.href">
               <input id="edit-formula" type="hidden" name="href" [(ngModel)]="usuario.usuarioData">
                 <input type="hidden" name="href" [(ngModel)]="usuario.href">
+                
                 <mat-form-field>
                     <input matInput placeholder="Nombre" [(ngModel)]="usuario.nombre"
                           required name="nombre" #nombre/>
-                </mat-form-field>
+                </mat-form-field><br/>
+                
                 <mat-form-field>
                   <input matInput placeholder="Apellido" [(ngModel)]="usuario.apellido"
                          required name="apellido" #apellido />
-                </mat-form-field>
+                </mat-form-field><br/>
+                
                 <mat-form-field>
                   <input matInput placeholder="E-mail" [(ngModel)]="usuario.email"
                         required name="email" #email />
-                </mat-form-field>
+                </mat-form-field><br/>
+                
               </mat-card-content>
+              
               <mat-card-footer>
-              <button id="submit" mat-raised-button color="primary" type="submit" [disabled]="!usuarioForm.form.valid">Guardar</button>
-              <span style="display:inline-block; width: 0.5em;"></span>
-              <a mat-raised-button color="primary" routerLink="/usuarios-list">Cancelar</a>
+              	<button id="submit" mat-raised-button color="primary" type="submit" [disabled]="!usuarioForm.form.valid">Guardar</button>
+              	<span style="display:inline-block; width: 0.5em;"></span>
+              	<a mat-raised-button color="primary" routerLink="/usuarios-list">Cancelar</a>
               </mat-card-footer>
+            
             </form>
+        
         </fieldset>
-    </div>
-  </div>
-<div>
 
-   
+		</div>
+    
+ 	</div>
+ 
+ </div>
+ 

@@ -1,44 +1,61 @@
-<div class="container">
-  <div class="row">
-  	<mat-card-title>Lista de personas</mat-card-title>
-    <mat-card>
-      <mat-card-content>
-      	<button class="btn btn-primary" title ="Agregar Persona" [routerLink]="['/persona-add']">Agregar persona</button>
-        <table class="table table-dark table-striped table-hover">
-           <thead class="sticky-top">
-            <tr>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>DNI</th>
-              <!--<th>Funci&oacute;n</th>-->
-              <th>Matr&iacute;cula</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr mdbTableCol *ngFor="let persona of personas">
-              <td>{{persona.nombre}}</td>
-              <td>{{persona.apellido}}</td>
-              <td>{{persona.dni}}</td>
-              <!--<td>{{persona.funcion}}</td>-->
-              <td>{{persona.matricula}}</td>
-              <td>
-                <a mat-button title="Modificar persona" [routerLink]="['/persona-edit', persona.id]">
-                		<img src="assets/img/iconos/editar.png" width="25" height="25">
-                </a>
-              </td>
-              <td>
-                <a mat-button title="Eliminar persona" [routerLink]="['/persona-edit', persona.id]">
-                  <img src="assets/img/iconos/eliminar.png" width="25" height="25">
-                </a>
-              </td>
-              <td>
-                <a mat-button title="Ver fotos" [routerLink]="['/fotos']">     
-                  <img src="assets/img/iconos/user.png" tooltip="Ver fotos" width="25" height="25">
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </mat-card-content>
-    </mat-card>
-</div>
+<app-header></app-header>
+
+	<div class="row">
+		
+		<div class="col-md-10 col-md-offset-1">
+ 
+		<mat-card-header>
+  			<mat-card-title><br/>Lista de personas<br/></mat-card-title>
+  		</mat-card-header>
+
+     	<mat-card>
+
+		<mat-card-content>
+      	
+      				<button class="btn btn-primary" title ="Agregar Persona" 
+      	        			[routerLink]="['/persona-add']">Agregar persona</button>
+        
+        			<table class="table table-dark table-striped table-hover">
+           
+           				<thead class="sticky-top">
+            			
+            				<tr>
+              					<th>Nombre</th>
+              					<th>Apellido</th>
+              					<th>DNI</th>
+              					<!--<th>Funci&oacute;n</th>-->
+              					<th>Matr&iacute;cula</th>
+            				</tr>
+          				</thead>
+          				
+          				<tbody>
+            
+            				<tr mdbTableCol *ngFor="let persona of personas">
+              
+              					<td>{{persona.nombre}}</td>
+             					<td>{{persona.apellido}}</td>
+              					<td>{{persona.dni}}</td>
+              					<!--<td>{{persona.funcion}}</td>-->
+              					<td>{{persona.matricula}}</td>
+              					<td>
+                					<a mat-button title="Modificar persona" [routerLink]="['/persona-edit', persona.id]">
+                						<img src="assets/img/iconos/editar.png" width="25" height="25">
+                					</a>
+              					</td>
+             					<td>
+                					<a mat-button title="Eliminar persona" [routerLink]="['/persona-edit', persona.id]">
+                  						<img src="assets/img/iconos/eliminar.png" width="25" height="25">
+                					</a>	
+              					</td>
+              					<td>
+                					<a mat-button title="Ver fotos" [routerLink]="['/fotos']">     
+                  						<img src="assets/img/iconos/user.png" tooltip="Ver fotos" width="25" height="25">
+                					</a>
+              					</td>
+            				</tr>
+          				</tbody>
+        			</table>
+     		</mat-card-content>
+   		 </mat-card>
+	</div>
+</div>	

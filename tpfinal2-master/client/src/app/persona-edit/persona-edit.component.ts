@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PersonasService } from '../shared/personas/personas.service';
+import { PersonasService } from '../_services/personas.service';
 import { NgForm } from '@angular/forms';
 
 @Component({

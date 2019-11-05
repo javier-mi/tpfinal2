@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FotosService } from '../shared/fotos/fotos.service';
+import { FotosService } from '../_services/fotos.service';
 
 @Component({
   selector: 'fotos',

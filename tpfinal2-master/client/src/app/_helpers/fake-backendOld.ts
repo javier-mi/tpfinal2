@@ -6,8 +6,16 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 import { Usuario } from '../_models/usuario';
 
-const myUsuariodetails: UsuarioDetail = { password: "test", usuarioname: "test", usuarioDetails: null, accountNonExpired: true, accountNonLocked: true,
-    credentialsNonExpired: true, enabled: true}
+const myUsuariodetails: UsuarioDetail = { 
+	password: "test", 
+	usuarioname: "test", 
+	usuarioDetails: null, 
+	accountNonExpired: true, 
+	accountNonLocked: true,
+    credentialsNonExpired: true, 
+    enabled: true
+}
+
 const usuarios: Usuario[] = [{ usuarioDetails: myUsuariodetails }];
 
 @Injectable()

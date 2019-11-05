@@ -41,7 +41,7 @@ public class JPAUsuarioDao implements IUsuarioDao {
         try {
         	usuario = em.find(Usuario.class, id);
         } catch (Exception e) {
-			throw new Exception("method personas :: " + e.getMessage());
+			throw new Exception("method findById :: " + e.getMessage());
 		}
         return usuario;
     }
