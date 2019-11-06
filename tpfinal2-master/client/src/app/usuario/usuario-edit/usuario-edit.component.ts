@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-import { UsuarioService } from '../_services/usuario.service';
+import { UsuarioService } from '../../_services/usuario.service';
 
 @Component({
   selector: 'app-usuario-edit',
@@ -38,7 +38,7 @@ export class UsuarioEditComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/usuarios-list']);
+    this.router.navigate(['/usuario/usuarios-list']);
   }
 
   save(form: NgForm) {

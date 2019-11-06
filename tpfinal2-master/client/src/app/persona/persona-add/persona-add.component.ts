@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PersonasService } from '../_services/personas.service';
 import { NgForm } from '@angular/forms';
+
+import { PersonaService } from '../../_services/persona.service';
 
 @Component({
   selector: 'app-persona-add',
@@ -17,7 +18,7 @@ export class PersonaAddComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private personasService: PersonasService) {
+              private personaService: PersonaService) {
   }
 
   ngOnInit() {
@@ -25,17 +26,17 @@ export class PersonaAddComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/personas-list']);
+    this.router.navigate(['/persona/persona-list']);
   }
 
   save(form: NgForm) {
-    this.personasService.save(form).subscribe(result => {
+    this.personaService.save(form).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }
 
   remove(href) {
-    this.personasService.remove(this.persona).subscribe(result => {
+    this.personaService.remove(this.persona).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }

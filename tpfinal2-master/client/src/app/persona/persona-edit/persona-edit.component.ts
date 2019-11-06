@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PersonasService } from '../_services/personas.service';
 import { NgForm } from '@angular/forms';
+
+import { PersonaService } from '../../_services/persona.service';
 
 @Component({
   selector: 'app-persona-edit',
@@ -17,14 +18,14 @@ export class PersonaEditComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private personasService: PersonasService) {
+              private personaService: PersonaService) {
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
-        this.personasService.get(id).subscribe((persona: any) => {
+        this.personaService.get(id).subscribe((persona: any) => {
           if (persona) {
             this.persona.nombre = persona.nombre;
             this.persona.apellido = persona.apellido;
@@ -45,17 +46,17 @@ export class PersonaEditComponent implements OnInit, OnDestroy {
   }
 
   gotoList() {
-    this.router.navigate(['/personas-list']);
+    this.router.navigate(['/persona/persona-list']);
   }
 
   save(form: NgForm) {
-    this.personasService.save(form).subscribe(result => {
+    this.personaService.save(form).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }
 
   remove(href) {
-    this.personasService.remove(href).subscribe(result => {
+    this.personaService.remove(href).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }

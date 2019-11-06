@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
-export class FotosService {
+
+export class FotoService {
+
   public API = '//localhost:8080';
   public FOTO_API = this.API + '/fotos';
 

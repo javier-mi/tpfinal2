@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 
 import { NgForm } from '@angular/forms';
 
-import { UsuarioService } from '../_services/usuario.service';
+import { UsuarioService } from '../../_services/usuario.service';
 
 @Component({
-  selector: 'app-usuarios-list',
-  templateUrl: './usuarios-list.component.html',
-  styleUrls: ['./usuarios-list.component.css']
+  selector: 'app-usuario-list',
+  templateUrl: './usuario-list.component.html',
+  styleUrls: ['./usuario-list.component.css']
 })
-export class UsuariosListComponent implements OnInit {
+export class UsuarioListComponent implements OnInit {
 
  usuarios: Array<any>;
 
@@ -17,7 +17,6 @@ export class UsuariosListComponent implements OnInit {
 
   ngOnInit() {
     this.usuarioService.getAll().subscribe(data => {
-      alert(data);
       this.usuarios = data;
     }, error => console.error(error));
   }
